@@ -198,6 +198,12 @@ p { margin: 0 0 1em; }
 .form input, .form select, .form textarea { font: 400 1rem var(--body); padding: 12px 14px; border-radius: 10px; border: 1px solid #cfd6de; color: var(--ink); background: #fff; width: 100%; }
 .form input:focus, .form select:focus, .form textarea:focus { outline: 2px solid var(--green); border-color: var(--green); }
 .form__fine { font-size: .8rem; color: var(--muted); margin: 0; text-align: center; }
+.form__trap { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form__status { margin: 0; padding: 12px 14px; border-radius: 10px; font-size: .92rem; }
+.form__status--ok { background: var(--green-soft); color: var(--green-dark); }
+.form__status--err { background: #fdecea; color: #8a1c14; }
+.form__status a { color: inherit; font-weight: 700; }
+.btn:disabled { opacity: .7; cursor: wait; }
 
 /* Footer */
 .footer { background: #0a1f35; color: #9fb3c8; padding: 40px 0 32px; font-size: .9rem; }

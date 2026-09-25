@@ -1,6 +1,8 @@
 (function () {
   const PHONE = "+19043955452";
   const EMAIL = "hello@eluxencarts.com";
+  // Formspree form ID (the part after /f/ in the form's endpoint). Empty = fall back to a prefilled email.
+  const FORMSPREE_ID = "";
 
   const inventory = (window.INVENTORY || []).slice();
 
@@ -164,13 +166,43 @@
     if (e.target.tagName === "A") { nav.classList.remove("is-open"); menuBtn.setAttribute("aria-expanded", "false"); }
   });
 
-  // Contact form -> prefilled email
-  document.getElementById("contact-form").addEventListener("submit", (e) => {
+  // Contact form -> Formspree (or a prefilled email when no form ID is set)
+  const form = document.getElementById("contact-form");
+  const formStatus = document.getElementById("form-status");
+  const formFine = form.querySelector(".form__fine");
+  if (FORMSPREE_ID) formFine.textContent = "Goes straight to our inbox. Prefer to talk? Text or call (904) 395-5452.";
+  const showStatus = (kind, html) => {
+    formStatus.className = `form__status form__status--${kind}`;
+    formStatus.innerHTML = html;
+    formStatus.hidden = false;
+  };
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const f = new FormData(e.target);
+    const f = new FormData(form);
+    if (f.get("_gotcha")) return;
     const subject = `${f.get("topic")}: ${f.get("name")}`;
-    const text = `${f.get("message")}\n\nName: ${f.get("name")}\nReply to: ${f.get("reply")}`;
-    location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+    if (!FORMSPREE_ID) {
+      const text = `${f.get("message")}\n\nName: ${f.get("name")}\nReply to: ${f.get("reply")}`;
+      location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+      return;
+    }
+    f.set("_subject", `Website: ${subject}`);
+    if (String(f.get("reply")).includes("@")) f.set("_replyto", f.get("reply"));
+    const btn = form.querySelector("button[type=submit]");
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    formStatus.hidden = true;
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, { method: "POST", body: f, headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      form.reset();
+      showStatus("ok", `<strong>Thanks, ${esc(f.get("name"))}. Your message is on its way.</strong> We'll get back to you at ${esc(f.get("reply"))}.`);
+    } catch (err) {
+      showStatus("err", `<strong>That didn't send.</strong> Please text or call <a href="sms:${PHONE}">(904) 395-5452</a>, or email <a href="mailto:${EMAIL}">${EMAIL}</a>.`);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Send message";
+    }
   });
 
   document.getElementById("year").textContent = new Date().getFullYear();

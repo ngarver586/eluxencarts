@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#121417" />
   <link rel="preload" as="image" href="images/hero.webp" />
 </head>
 <body>
@@ -23,9 +27,8 @@
 
   <header class="header">
     <div class="wrap header__inner">
-      <a href="#top" class="logo" aria-label="Eluxen Carts home">
-        <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="currentColor"/><path d="M13 7v17M13 7l9 3.5-9 3.5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="16" cy="24.5" rx="7" ry="1.6" fill="#fff" opacity=".9"/></svg>
-        <span class="logo__word">ELUXEN<span>CARTS</span></span>
+      <a href="#top" class="logo">
+        <img src="images/brand/eluxen-logo.svg" alt="Eluxen Carts home" width="342" height="64" />
       </a>
       <nav class="nav" id="nav" aria-label="Main">
         <a href="#inventory">Inventory</a>
@@ -120,7 +123,7 @@
     </section>
 
     <!-- UPGRADES -->
-    <section class="section section--sand" id="upgrades">
+    <section class="section section--porcelain" id="upgrades">
       <div class="wrap">
         <div class="section__head">
           <p class="eyebrow">Upgrades &amp; custom builds</p>
@@ -198,7 +201,7 @@
     </section>
 
     <!-- SERVICE AREA -->
-    <section class="section section--sand section--tight">
+    <section class="section section--porcelain section--tight">
       <div class="wrap area">
         <div>
           <p class="eyebrow">Service area</p>
@@ -227,7 +230,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="section section--navy" id="contact">
+    <section class="section section--dark" id="contact">
       <div class="wrap contact">
         <div>
           <p class="eyebrow eyebrow--light">Contact</p>
@@ -262,7 +265,7 @@
   <footer class="footer">
     <div class="wrap footer__inner">
       <div>
-        <span class="logo__word logo__word--light">ELUXEN<span>CARTS</span></span>
+        <img class="footer__logo" src="images/brand/eluxen-logo-reverse.svg" alt="Eluxen Carts" width="342" height="64" loading="lazy" />
         <p>Pre-owned golf carts &amp; custom builds · Nocatee, FL</p>
       </div>
       <nav aria-label="Footer">

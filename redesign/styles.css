@@ -311,3 +311,4 @@ p { margin: 0 0 1em; }
 }
 .detail__info { grid-auto-rows: max-content; }
 .detail__info h2 { text-transform: none; }
+.detail__info .card__meta { text-transform: none; letter-spacing: .02em; font-size: .85rem; }

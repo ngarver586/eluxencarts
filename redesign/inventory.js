@@ -27,7 +27,9 @@ window.INVENTORY = [
     location: "Nocatee, FL",
     photos: [
       "images/carts/icon-i60l-2024.webp",
+      "images/carts/icon-i60l-2024-front.webp",
       "images/carts/icon-i60l-2024-side.webp",
+      "images/carts/icon-i60l-2024-dash.webp",
       "images/carts/icon-i60l-2024-rear.webp",
       "images/carts/icon-i60l-2024-soundbar.webp",
       "images/carts/icon-i60l-2024-battery.webp"

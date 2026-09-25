@@ -2,7 +2,7 @@
   const PHONE = "+19043955452";
   const EMAIL = "hello@eluxencarts.com";
   // Formspree form ID (the part after /f/ in the form's endpoint). Empty = fall back to a prefilled email.
-  const FORMSPREE_ID = "";
+  const FORMSPREE_ID = "xaenbayy";
 
   const inventory = (window.INVENTORY || []).slice();
 
@@ -170,7 +170,7 @@
   const form = document.getElementById("contact-form");
   const formStatus = document.getElementById("form-status");
   const formFine = form.querySelector(".form__fine");
-  if (FORMSPREE_ID) formFine.textContent = "Goes straight to our inbox. Prefer to talk? Text or call (904) 395-5452.";
+  if (!FORMSPREE_ID) formFine.textContent = "Opens your email app with your message filled in.";
   const showStatus = (kind, html) => {
     formStatus.className = `form__status form__status--${kind}`;
     formStatus.innerHTML = html;

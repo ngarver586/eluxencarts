@@ -23,6 +23,22 @@
     return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
   const has = (v) => v !== undefined && v !== null && v !== "";
+  const chevron = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d < 0 ? "M15 5l-7 7 7 7" : "M9 5l7 7-7 7"}"/></svg>`;
+  const photoNav = (n) => n > 1
+    ? `<button class="photo-nav photo-nav--prev" data-step="-1" aria-label="Previous photo">${chevron(-1)}</button><button class="photo-nav photo-nav--next" data-step="1" aria-label="Next photo">${chevron(1)}</button>`
+    : "";
+  const wrapIndex = (i, n) => (i + n) % n;
+  // Horizontal swipe on touch screens: calls onSwipe(-1|1) and reports whether it fired.
+  function swipe(el, onSwipe) {
+    let x0 = null, y0 = 0;
+    el.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    el.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) onSwipe(dx < 0 ? 1 : -1);
+    });
+  }
 
   function specs(c, full) {
     return [
@@ -54,11 +70,14 @@
     const shown = tags.slice(0, 4);
     return `
       <article class="card${c.status === "sold" ? " is-sold" : ""}">
-        <button class="card__media" data-open="${esc(c.id)}" aria-label="View photos and details for ${esc(title(c))}">
-          <img src="${esc(c.photos[0])}" alt="${esc(fullName(c))}" loading="lazy" />
-          <span class="pill pill--${c.status}">${statusLabel[c.status]}</span>
-          ${c.photos.length > 1 ? `<span class="card__count">${c.photos.length} photos</span>` : ""}
-        </button>
+        <div class="card__photo" data-id="${esc(c.id)}" data-i="0">
+          <button class="card__media" data-open="${esc(c.id)}" aria-label="View photos and details for ${esc(title(c))}">
+            <img src="${esc(c.photos[0])}" alt="${esc(fullName(c))}" loading="lazy" />
+            <span class="pill pill--${c.status}">${statusLabel[c.status]}</span>
+            ${c.photos.length > 1 ? `<span class="card__count">1 / ${c.photos.length}</span>` : ""}
+          </button>
+          ${photoNav(c.photos.length)}
+        </div>
         <div class="card__body">
           <div class="card__top">
             <div>
@@ -117,21 +136,64 @@
       render();
       return;
     }
+    const step = e.target.closest(".card__photo .photo-nav");
+    if (step) { stepCard(step.closest(".card__photo"), +step.dataset.step); return; }
     const o = e.target.closest("[data-open]");
-    if (o) openDetail(o.dataset.open);
+    if (o) {
+      const photo = o.closest(".card__photo");
+      openDetail(o.dataset.open, photo ? +photo.dataset.i : 0);
+    }
+  });
+
+  // Card photo arrows: step through a listing's photos in place.
+  function stepCard(el, d) {
+    const c = inventory.find((x) => x.id === el.dataset.id);
+    if (!c || c.photos.length < 2) return;
+    const i = wrapIndex(+el.dataset.i + d, c.photos.length);
+    el.dataset.i = i;
+    el.querySelector(".card__media img").src = c.photos[i];
+    el.querySelector(".card__count").textContent = `${i + 1} / ${c.photos.length}`;
+  }
+  let touch = null;
+  grid.addEventListener("touchstart", (e) => {
+    const el = e.target.closest(".card__photo");
+    touch = el ? { el, x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
+  }, { passive: true });
+  grid.addEventListener("touchend", (e) => {
+    if (!touch) return;
+    const dx = e.changedTouches[0].clientX - touch.x, dy = e.changedTouches[0].clientY - touch.y;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) stepCard(touch.el, dx < 0 ? 1 : -1);
+    touch = null;
   });
 
   // Detail dialog
   const dlg = document.getElementById("detail");
   const body = document.getElementById("detail-body");
-  function openDetail(id) {
+  let current = null;
+  function showPhoto(i) {
+    if (!current) return;
+    current.i = wrapIndex(i, current.c.photos.length);
+    document.getElementById("detail-main").src = current.c.photos[current.i];
+    const count = dlg.querySelector(".detail__count");
+    if (count) count.textContent = `${current.i + 1} / ${current.c.photos.length}`;
+    dlg.querySelectorAll(".detail__thumbs button").forEach((x, n) => {
+      x.classList.toggle("is-on", n === current.i);
+      if (n === current.i) x.scrollIntoView({ block: "nearest", inline: "nearest" });
+    });
+  }
+  function openDetail(id, start = 0) {
     const c = inventory.find((x) => x.id === id);
     if (!c) return;
+    current = { c, i: 0 };
     const desc = Array.isArray(c.description) ? c.description : c.description ? [c.description] : c.summary ? [c.summary] : [];
     body.innerHTML = `
       <div class="detail__gallery">
-        <img id="detail-main" src="${esc(c.photos[0])}" alt="${esc(fullName(c))}" />
-        ${c.photos.length > 1 ? `<div class="detail__thumbs">${c.photos.map((p, i) => `<button data-src="${esc(p)}" class="${i ? "" : "is-on"}" aria-label="Photo ${i + 1}"><img src="${esc(p)}" alt="" /></button>`).join("")}</div>` : ""}
+        <div class="detail__stage">
+          <img id="detail-main" src="${esc(c.photos[0])}" alt="${esc(fullName(c))}" />
+          ${photoNav(c.photos.length)}
+          ${c.photos.length > 1 ? `<span class="detail__count">1 / ${c.photos.length}</span>` : ""}
+        </div>
+        ${c.photos.length > 1 ? `<div class="detail__thumbs">${c.photos.map((p, i) => `<button data-i="${i}" class="${i ? "" : "is-on"}" aria-label="Photo ${i + 1}"><img src="${esc(p)}" alt="" /></button>`).join("")}</div>` : ""}
       </div>
       <div class="detail__info">
         <span class="pill pill--${c.status}">${statusLabel[c.status]}</span>
@@ -145,15 +207,21 @@
         ${ctas(c, true)}
       </div>`;
     dlg.showModal();
+    if (start) showPhoto(start);
   }
   dlg.addEventListener("click", (e) => {
     if (e.target === dlg || e.target.closest(".detail__close") || e.target.closest("[data-close]")) dlg.close();
     const t = e.target.closest(".detail__thumbs button");
-    if (t) {
-      document.getElementById("detail-main").src = t.dataset.src;
-      dlg.querySelectorAll(".detail__thumbs button").forEach((x) => x.classList.toggle("is-on", x === t));
-    }
+    if (t) showPhoto(+t.dataset.i);
+    const step = e.target.closest(".detail__stage .photo-nav");
+    if (step) showPhoto(current.i + +step.dataset.step);
   });
+  dlg.addEventListener("keydown", (e) => {
+    if (!current || current.c.photos.length < 2) return;
+    if (e.key === "ArrowLeft") { e.preventDefault(); showPhoto(current.i - 1); }
+    if (e.key === "ArrowRight") { e.preventDefault(); showPhoto(current.i + 1); }
+  });
+  swipe(body, (d) => { if (current && current.c.photos.length > 1) showPhoto(current.i + d); });
 
   // Mobile menu
   const menuBtn = document.querySelector(".menu-btn");

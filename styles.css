@@ -123,7 +123,6 @@ p { margin: 0 0 1em; }
 .detail__stage > img { width: 100%; min-height: 280px; aspect-ratio: 4 / 3; object-fit: contain; background: #1b2530; }
 .detail__count { position: absolute; left: 12px; bottom: 12px; background: rgba(14,42,71,.8); color: #fff; font-size: .78rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; }
 .card__count { position: absolute; right: 12px; bottom: 12px; background: rgba(14,42,71,.8); color: #fff; font-size: .78rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; }
-.card__sample { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); background: var(--sun); color: var(--navy); font: 800 1.3rem var(--head); text-transform: uppercase; letter-spacing: .08em; padding: 8px 18px; border-radius: 6px; box-shadow: var(--shadow); }
 .pill { position: absolute; left: 12px; top: 12px; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 5px 10px; border-radius: 6px; }
 .pill--available { background: var(--green); color: #fff; }
 .pill--pending { background: var(--sun); color: var(--navy); }

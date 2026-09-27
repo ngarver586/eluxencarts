@@ -47,7 +47,7 @@ window.INVENTORY = [
       "Diamond-stitched seats, rear flip seat",
       "3,177 miles"
     ],
-    summary: "Factory-lifted six passenger converted to the Eco Battery lithium pack ICON installs new, with the matching CAN charger. Four-wheel disc brakes, glass windshield with wiper, 10-inch dash. Comes with a written Cart Report and free delivery in the Nocatee corridor.",
+    summary: "Factory-lifted six passenger converted to an Eco Battery 51.2V lithium pack with the matching CAN charger. Four-wheel disc brakes, glass windshield with wiper, 10-inch dash. Comes with a written Cart Report and free delivery in the Nocatee corridor.",
     description: [
       "2023 EPIC E60L six passenger, factory lifted, on a 51.2V Eco Battery lithium pack with the matching Eco CAN charger. 3,177 miles. Top speed GPS-verified at 25 mph.",
       "I've been through this cart end to end: lead-acid pack removed and replaced with the Eco Battery lithium system, controller tuned for the pack, brakes checked on all four corners, wheel studs replaced and lugs torqued to spec.",

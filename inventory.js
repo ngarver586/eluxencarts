@@ -45,13 +45,15 @@ window.INVENTORY = [
       "Ironclad A/T 23x10-14 tires",
       "Glass windshield with wiper",
       "Diamond-stitched seats, rear flip seat",
-      "3,177 miles"
+      "3,177 miles",
+      "Upgrades available before delivery"
     ],
-    summary: "Factory-lifted six passenger converted to an Eco Battery 51.2V lithium pack with the matching CAN charger. Four-wheel disc brakes, glass windshield with wiper, 10-inch dash. Comes with a written Cart Report and free delivery in the Nocatee corridor.",
+    summary: "Factory-lifted six passenger converted to an Eco Battery 51.2V lithium pack with the matching CAN charger. Four-wheel disc brakes, glass windshield with wiper, 10-inch dash. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
       "2023 EPIC E60L six passenger, factory lifted, on a 51.2V Eco Battery lithium pack with the matching Eco CAN charger. 3,177 miles. Top speed GPS-verified at 25 mph.",
       "I've been through this cart end to end: lead-acid pack removed and replaced with the Eco Battery lithium system, controller tuned for the pack, brakes checked on all four corners, wheel studs replaced and lugs torqued to spec.",
       "Four-wheel hydraulic disc brakes, BEAST Black Piranha 14-inch wheels on Ironclad A/T 23x10-14 tires, extended blue top, glass windshield with wiper, folding mirrors, black diamond-stitched seats with blue stitching, rear flip seat that converts to a cargo deck, 10-inch color dash, LED light bar, LED headlights and taillights, turn signals, Bluetooth soundbar, front brush guard with cargo basket, running boards, fender flares.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
@@ -91,13 +93,15 @@ window.INVENTORY = [
       "Brown premium seats, rear flip seat",
       "Bluetooth LED soundbar",
       "LED lights, brush guard, running boards",
-      "2,331 miles"
+      "2,331 miles",
+      "Upgrades available before delivery"
     ],
-    summary: "Factory-lifted six passenger on the same Eco Battery lithium pack ICON installs new, with the matching CAN charger. Controller tuned, speedometer calibrated against GPS, brakes and suspension checked. Comes with a written Cart Report and free delivery in the Nocatee corridor.",
+    summary: "Factory-lifted six passenger on the same Eco Battery lithium pack ICON installs new, with the matching CAN charger. Controller tuned, speedometer calibrated against GPS, brakes and suspension checked. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
       "2024 ICON i60L six passenger, factory lifted, on a 51.2V Eco Battery lithium pack with the EB gauge and matching Eco CAN charger. 2,331 miles. Top speed GPS-verified at 25 mph.",
       "I've been through this cart end to end: controller reprogrammed and tuned for the Eco pack, speedometer calibrated against GPS on the 23-inch tires, brakes and suspension checked, tire pressures set.",
       "Extended white top, fold-down windshield, folding mirrors, brown premium seats with a rear flip seat that converts to a cargo deck, LED headlights and taillights, front brush guard, running boards, fender flares, Bluetooth LED soundbar with color control, front disc brakes.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],

@@ -31,6 +31,7 @@ p { margin: 0 0 1em; }
 .wrap { width: min(1200px, 100% - 32px); margin-inline: auto; }
 .wrap--narrow { width: min(820px, 100% - 32px); }
 .center { text-align: center; margin-top: 32px; }
+.center--row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 
 .eyebrow { font-weight: 700; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin-bottom: .6em; }
 .eyebrow--light { color: #9fe0bb; }

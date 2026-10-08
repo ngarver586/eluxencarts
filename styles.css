@@ -59,8 +59,8 @@ p { margin: 0 0 1em; }
 .logo { display: flex; align-items: center; flex: none; }
 .logo img { height: 46px; width: auto; }
 .footer__logo { height: 44px; width: auto; margin-bottom: 12px; }
-.nav { display: flex; gap: 26px; margin-left: auto; }
-.nav a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; }
+.nav { display: flex; gap: 22px; margin-left: auto; }
+.nav a { color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; white-space: nowrap; }
 .nav a:hover { color: var(--green); }
 .header__cta { display: flex; gap: 10px; align-items: center; }
 .menu-btn { display: none; background: none; border: 0; width: 44px; height: 44px; padding: 10px; cursor: pointer; }
@@ -242,7 +242,7 @@ p { margin: 0 0 1em; }
 /* Mobile action bar */
 .actionbar { display: none; }
 
-@media (max-width: 1060px) {
+@media (max-width: 1200px) {
   .nav { position: fixed; inset: 104px 0 auto 0; flex-direction: column; gap: 0; background: #fff; border-bottom: 1px solid var(--line); box-shadow: var(--shadow); padding: 8px 16px 16px; display: none; }
   .nav.is-open { display: flex; }
   .nav a { padding: 14px 4px; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
@@ -327,3 +327,12 @@ p { margin: 0 0 1em; }
 .detail__info { grid-auto-rows: max-content; }
 .detail__info h2 { text-transform: none; }
 .detail__info .card__meta { text-transform: none; letter-spacing: .02em; font-size: .85rem; }
+
+/* Service teaser */
+.svc-teaser { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.svc-teaser__item { display: grid; gap: 4px; padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; transition: border-color .15s, box-shadow .15s; }
+.svc-teaser__item:hover { border-color: var(--green); box-shadow: var(--shadow); }
+.svc-teaser__item strong { font: 700 1.4rem/1.1 var(--head); color: var(--navy); }
+.svc-teaser__item span { color: var(--muted); font-size: .9rem; }
+@media (max-width: 1060px) { .svc-teaser { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .svc-teaser { grid-template-columns: 1fr; } }

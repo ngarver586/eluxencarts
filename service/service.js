@@ -49,14 +49,14 @@
     const big = Number(field("seats")) >= 6;
     const show = val("detail_level") === "Show";
     const detail = show ? (big ? 279 : 249) : (big ? 179 : 149);
-    const maint = gas ? 179 : 149;
+    const maint = gas ? 219 : 189;
     const pickup = field("area") === "Nocatee" ? 150 : 250;
     const own = form.elements.bought_from_eluxen.checked;
     switch (svc) {
       case "Maintenance": return `Maintenance: $${maint}, done at your home. No trip fee.`;
       case "Detailing": return `${show ? "Show" : "Signature"} detail: $${detail}, done at your home. No trip fee.`;
       case "Maintenance + detailing": return `Maintenance $${maint} + ${show ? "Show" : "Signature"} detail $${detail}, one visit at your home.`;
-      case "Annual Care Plan": return `Annual Care Plan: $${gas ? 349 : 299} per year, two visits scheduled at signup.`;
+      case "Annual Care Plan": return `Annual Care Plan: $${gas ? 399 : 349} per year, two visits scheduled at signup.`;
       case "Repair": return own || !field("area")
         ? `Repair: $99 diagnostic, credited toward the repair.${own ? " Pickup and return included for Eluxen carts." : ""}`
         : `Repair: $99 diagnostic, credited toward the repair. Pickup and return $${pickup}, included on repairs over $1,500.`;

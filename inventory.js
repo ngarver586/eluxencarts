@@ -16,7 +16,7 @@ window.INVENTORY = [
     make: "Evolution",
     model: "Forester 6 Plus",
     name: "Evolution Forester 6 Plus Six Passenger, 180Ah Lithium",
-    price: 8900,
+    price: 9500,
     seats: 6,
     power: "lithium",
     voltage: "48V",
@@ -56,7 +56,7 @@ window.INVENTORY = [
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
     reportUrl: "https://cartfol.io/nickfury/the-black-forest",
-    inquirySubject: "Inquiry: 2025 Evolution Forester 6 Plus $8,900"
+    inquirySubject: "Inquiry: 2025 Evolution Forester 6 Plus $9,500"
   },
   {
     id: "2019-ezgo-express-l6",

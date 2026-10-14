@@ -55,6 +55,7 @@ window.INVENTORY = [
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
+    reportUrl: "https://cartfol.io/nickfury/the-black-forest",
     inquirySubject: "Inquiry: 2025 Evolution Forester 6 Plus $8,900"
   },
   {

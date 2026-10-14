@@ -10,6 +10,54 @@
 */
 window.INVENTORY = [
   {
+    id: "2025-evolution-forester-6-plus",
+    status: "available",
+    year: 2025,
+    make: "Evolution",
+    model: "Forester 6 Plus",
+    name: "Evolution Forester 6 Plus Six Passenger, 180Ah Lithium",
+    price: 8900,
+    seats: 6,
+    power: "lithium",
+    voltage: "48V",
+    batteryDetail: "Evolution LiFePO4 48V 180Ah, 8.64 kWh",
+    topSpeed: "25 mph",
+    miles: 2184,
+    lifted: true,
+    color: "Black",
+    location: "Nocatee, FL",
+    photos: [
+      "images/carts/evolution-forester-2025.webp",
+      "images/carts/evolution-forester-2025-front-quarter.webp",
+      "images/carts/evolution-forester-2025-side.webp",
+      "images/carts/evolution-forester-2025-front.webp",
+      "images/carts/evolution-forester-2025-cockpit.webp",
+      "images/carts/evolution-forester-2025-dash.webp",
+      "images/carts/evolution-forester-2025-battery.webp",
+      "images/carts/evolution-forester-2025-rear.webp"
+    ],
+    highlights: [
+      "Evolution LiFePO4 48V 180Ah, 8.64 kWh",
+      "25 mph",
+      "Factory lifted, 14-inch machined wheels, all-terrain tires",
+      "Extended top, folding windshield, brush guard",
+      "Rear flip seat with grab rail",
+      "7-inch touchscreen, dash speakers",
+      "2,184 miles",
+      "Upgrades available before delivery"
+    ],
+    summary: "Factory-lifted 2025 six passenger on Evolution's largest lithium pack, 180Ah, with the stock charger. One year old with 2,184 miles. Controller set, lighting tested, tire pressures and lug torque set. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
+    description: [
+      "2025 Evolution Forester 6 Plus six passenger in black, factory lifted, on a 48V Evolution LiFePO4 180Ah pack (8.64 kWh) with the stock Evolution charger. 2,184 miles. Top speed 25 mph.",
+      "I've been through this cart end to end: battery checked and balanced, controller set and documented, lighting and signals tested, tire pressures and lug torque set.",
+      "14-inch machined aluminum wheels on all-terrain tires, extended top, folding windshield, side mirrors, fender flares, front brush guard, LED headlights, tail and turn signals, six black seats with a rear flip seat and grab rail, 7-inch touchscreen display, dash-mounted speakers.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
+      "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
+      "Sold as a golf cart; on-road compliance is the buyer's responsibility."
+    ],
+    inquirySubject: "Inquiry: 2025 Evolution Forester 6 Plus $8,900"
+  },
+  {
     id: "2019-ezgo-express-l6",
     status: "available",
     year: 2019,

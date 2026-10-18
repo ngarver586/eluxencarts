@@ -44,6 +44,8 @@ p { margin: 0 0 1em; }
 .btn--ghost:hover { border-color: var(--navy); }
 .btn--light { background: #fff; color: var(--navy); }
 .btn--light:hover { background: var(--sand); }
+.btn--ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,.6); }
+.btn--ghost-light:hover { border-color: #fff; background: rgba(255,255,255,.08); }
 .btn--sm { padding: 10px 16px; font-size: .92rem; }
 .btn--lg { padding: 17px 26px; font-size: 1.05rem; }
 .btn--block { width: 100%; }

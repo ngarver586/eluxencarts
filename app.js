@@ -57,7 +57,11 @@
     ].filter(([, v]) => has(v));
   }
 
-  const ctas = (c, withEmail) => `
+  const ctas = (c, withEmail) => c.status === "sold" ? `
+    <div class="card__ctas">
+      <a class="btn btn--primary" href="sms:${PHONE}?&body=${encodeURIComponent(`Hi Eluxen, I saw the ${fullName(c)} sold. I'm looking for something like it.`)}">Text us for one like it</a>
+      ${c.reportUrl ? `<a class="btn btn--ghost" href="${esc(c.reportUrl)}" target="_blank" rel="noopener">View the Cart Report ↗</a>` : ""}
+    </div>` : `
     <div class="card__ctas">
       <a class="btn btn--primary" href="tel:${PHONE}">Schedule a walkthrough</a>
       ${c.reportUrl ? `<a class="btn btn--ghost" href="${esc(c.reportUrl)}" target="_blank" rel="noopener">View the Cart Report ↗</a>` : ""}

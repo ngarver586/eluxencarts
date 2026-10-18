@@ -114,7 +114,7 @@ window.INVENTORY = [
   },
   {
     id: "2023-epic-e60l",
-    status: "available",
+    status: "sold",
     year: 2023,
     make: "EPIC",
     model: "E60L",

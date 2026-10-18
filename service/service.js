@@ -60,6 +60,7 @@
       case "Repair": return own || !field("area")
         ? `Repair: $99 diagnostic, credited toward the repair.${own ? " Pickup and return included for Eluxen carts." : ""}`
         : `Repair: $99 diagnostic, credited toward the repair. Pickup and return $${pickup}, included on repairs over $1,500.`;
+      case "Lithium battery": return "Lithium battery check: $99, done at your home, credited toward any repair you approve.";
       case "Customization": return "Customization: quoted per build. For a full spec, the custom build page walks you through it.";
       default: return "";
     }

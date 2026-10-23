@@ -116,7 +116,7 @@ window.INVENTORY = [
     make: "EZGO",
     model: "Express L6",
     name: "EZGO Express L6 Six Passenger, 72V Lithium",
-    price: 9500,
+    price: 8500,
     seats: 6,
     power: "lithium",
     voltage: "72V",
@@ -161,7 +161,7 @@ window.INVENTORY = [
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
     reportUrl: "https://cartfol.io/nickfury/the-night-shift",
-    inquirySubject: "Inquiry: 2019 EZGO Express L6 $9,500"
+    inquirySubject: "Inquiry: 2019 EZGO Express L6 $8,500"
   },
   {
     id: "2023-epic-e60l",

@@ -19,6 +19,22 @@
   <meta property="og:title" content="Golf cart service that comes to you | Eluxen Carts" />
   <meta property="og:description" content="Maintenance and detailing in your driveway, scheduled same day in Nocatee. Repairs with pickup and return." />
   <meta property="og:image" content="https://eluxencarts.com/images/hero.webp" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18531936305"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18531936305');
+    // Count Call and Text taps as Google Ads conversions. Conversion labels are set in Google Ads;
+    // until then these fire as plain events, which is enough for GA4-style reporting.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="tel:"],a[href^="sms:"]');
+      if (!a) return;
+      var kind = a.getAttribute('href').indexOf('tel:') === 0 ? 'call_click' : 'text_click';
+      gtag('event', kind, { send_to: 'AW-18531936305', event_category: 'contact', event_label: location.pathname });
+    }, true);
+  </script>
 </head>
 <body>
 

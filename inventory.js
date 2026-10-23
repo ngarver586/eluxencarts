@@ -29,6 +29,7 @@ window.INVENTORY = [
     photos: [
       "images/carts/royal-ev-crown-6l-2022.webp",
       "images/carts/royal-ev-crown-6l-2022-front.webp",
+      "images/carts/royal-ev-crown-6l-2022-side.webp",
       "images/carts/royal-ev-crown-6l-2022-rear.webp",
       "images/carts/royal-ev-crown-6l-2022-cockpit.webp",
       "images/carts/royal-ev-crown-6l-2022-dash.webp",

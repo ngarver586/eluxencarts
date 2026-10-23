@@ -143,7 +143,7 @@ window.INVENTORY = [
       "images/carts/ezgo-express-l6-2019-battery.webp"
     ],
     highlights: [
-      "72V LiFePO4 lithium, 105Ah",
+      "Brand new 72V LiFePO4 lithium, 105Ah, 5-year factory warranty",
       "GPS-verified 25 mph",
       "Lifted, 14-inch SS wheels, 23x10R14 street tires",
       "CarPlay and Android Auto screen",
@@ -152,10 +152,10 @@ window.INVENTORY = [
       "Rear flip seat",
       "Upgrades available before delivery"
     ],
-    summary: "Lifted six passenger converted from lead-acid to a 72V lithium pack with its matched 18A charger mounted onboard. Controller reprogrammed for the pack, LED headlights, turn signals, CarPlay screen and Bluetooth soundbar. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
+    summary: "The EZGO six-passenger platform, lifted, on a brand new 72V 105Ah lithium pack (7.4 kWh) with a 5-year factory warranty and its matched 18A charger mounted onboard. GPS-verified at 25 mph. Controller reprogrammed for the pack, LED headlights, turn signals, CarPlay screen and Bluetooth soundbar. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
-      "2019 EZGO Express L6 six passenger, lifted, on a 72V FLLYROWER LiFePO4 lithium pack with its matched 18A charger mounted onboard. Top speed GPS-verified at 25 mph.",
-      "I've been through this cart end to end: factory lead-acid bank removed and replaced with a 105Ah lithium pack, controller reprogrammed for the new pack with smoother acceleration, new LED headlights, turn signals with hazards, and a hardwired dash.",
+      "2019 EZGO Express L6 six passenger, lifted, on a brand new 72V FLLYROWER LiFePO4 105Ah lithium pack (7.4 kWh) with a 5-year factory warranty and its matched 18A charger mounted onboard. Top speed GPS-verified at 25 mph. This is the EZGO six-passenger platform, not an import badge, with a battery that will outlast the cart.",
+      "I've been through this cart end to end: factory lead-acid bank removed and replaced with the new lithium pack, controller reprogrammed for it with smoother acceleration, new LED headlights, turn signals with hazards, CarPlay screen and soundbar wired in. It drives the way a new one should.",
       "Lift kit, 14-inch SS wheels on 23x10R14 street tires, fender flares, brush guard, OEM top, folding windshield, side mirrors, rear seat that folds down into a cargo deck, RHOX LED headlights with color halos, underglow, roof light bar, Kemimoto Bluetooth soundbar, 10-inch CarPlay and Android Auto screen, live battery display, USB-C and QC 3.0 charging with voltmeter.",
       "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",

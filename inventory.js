@@ -10,6 +10,57 @@
 */
 window.INVENTORY = [
   {
+    id: "2022-royal-ev-crown-6l",
+    status: "available",
+    year: 2022,
+    make: "Royal EV",
+    model: "Crown 6L",
+    name: "Royal EV Crown 6L Six Passenger, 72V Lithium",
+    price: 9500,
+    seats: 6,
+    power: "lithium",
+    voltage: "72V",
+    batteryDetail: "Hangzhou Speed LiFePO4 72V 100Ah, 7.2 kWh",
+    topSpeed: "25 mph",
+    miles: 450,
+    lifted: true,
+    color: "Black",
+    location: "Nocatee, FL",
+    photos: [
+      "images/carts/royal-ev-crown-6l-2022.webp",
+      "images/carts/royal-ev-crown-6l-2022-front.webp",
+      "images/carts/royal-ev-crown-6l-2022-rear.webp",
+      "images/carts/royal-ev-crown-6l-2022-cockpit.webp",
+      "images/carts/royal-ev-crown-6l-2022-dash.webp",
+      "images/carts/royal-ev-crown-6l-2022-odometer.webp",
+      "images/carts/royal-ev-crown-6l-2022-wheel.webp",
+      "images/carts/royal-ev-crown-6l-2022-soundbar.webp",
+      "images/carts/royal-ev-crown-6l-2022-battery.webp"
+    ],
+    highlights: [
+      "72V LiFePO4 lithium, 100Ah, 7.2 kWh",
+      "25 mph",
+      "Factory lifted, 14-inch black alloys, 23x10-14 Duro all-terrains",
+      "Hard top, folding windshield, turn-signal mirrors",
+      "Six seats, rear flip seat with grab rail",
+      "Touchscreen head unit, overhead soundbar",
+      "LED headlights, light bar, underglow, brush guard with fog lights",
+      "450 miles",
+      "Upgrades available before delivery"
+    ],
+    summary: "Factory-lifted 2022 six passenger with 450 miles on its original 72V 100Ah lithium pack. Pack and BMS verified through a full charge cycle, brakes, lighting and signals checked, tire pressures and lug torque set. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
+    description: [
+      "2022 Royal EV Crown 6L six passenger in black, factory lifted, on a 72V Hangzhou Speed LiFePO4 100Ah pack (7.2 kWh) with Bluetooth BMS monitoring and the charger included. 450 miles. Top speed 25 mph.",
+      "I've been through this cart end to end: pack and BMS verified through a full charge cycle, brakes, steering and suspension checked, lighting and turn signals tested, tire pressures and lug torque set.",
+      "14-inch black alloy wheels on 23x10-14 Duro all-terrain tires, hard top, folding windshield, turn-signal mirrors, rear light bar, LED headlights and taillights, fog lights in the front brush guard, underglow accent lighting, front cargo basket, six black seats with belts at every position, rear flip seat with grab rail, Bluetooth touchscreen head unit, overhead soundbar, Gussi Italia steering wheel, locking glove box.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
+      "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
+      "No title; this cart was never titled or registered. The factory build plate reads LSV. Sold as a golf cart; on-road compliance is the buyer's responsibility."
+    ],
+    reportUrl: "https://cartfol.io/nickfury/the-crown-jewel",
+    inquirySubject: "Inquiry: 2022 Royal EV Crown 6L $9,500"
+  },
+  {
     id: "2025-evolution-forester-6-plus",
     status: "available",
     year: 2025,

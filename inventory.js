@@ -148,7 +148,7 @@ window.INVENTORY = [
       "Lifted, 14-inch SS wheels, 23x10R14 street tires",
       "CarPlay and Android Auto screen",
       "Kemimoto Bluetooth soundbar",
-      "RHOX LED headlights, underglow, light bar",
+      "RHOX LED headlights, Bluetooth color-changing halos, underglow, light bar",
       "Rear flip seat",
       "Upgrades available before delivery"
     ],
@@ -156,7 +156,7 @@ window.INVENTORY = [
     description: [
       "2019 EZGO Express L6 six passenger, lifted, on a brand new 72V FLLYROWER LiFePO4 105Ah lithium pack (7.4 kWh) with a 5-year factory warranty and its matched 18A charger mounted onboard. Top speed GPS-verified at 25 mph. This is the EZGO six-passenger platform, not an import badge, with a battery that will outlast the cart.",
       "I've been through this cart end to end: factory lead-acid bank removed and replaced with the new lithium pack, controller reprogrammed for it with smoother acceleration, new LED headlights, turn signals with hazards, CarPlay screen and soundbar wired in. It drives the way a new one should.",
-      "Lift kit, 14-inch SS wheels on 23x10R14 street tires, fender flares, brush guard, OEM top, folding windshield, side mirrors, rear seat that folds down into a cargo deck, RHOX LED headlights with color halos, underglow, roof light bar, Kemimoto Bluetooth soundbar, 10-inch CarPlay and Android Auto screen, live battery display, USB-C and QC 3.0 charging with voltmeter.",
+      "Lift kit, 14-inch SS wheels on 23x10R14 street tires, fender flares, brush guard, OEM top, folding windshield, side mirrors, rear seat that folds down into a cargo deck, RHOX LED headlights with Bluetooth color-changing halos, underglow, roof light bar, Kemimoto Bluetooth soundbar, 10-inch CarPlay and Android Auto screen, live battery display, USB-C and QC 3.0 charging with voltmeter.",
       "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."

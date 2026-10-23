@@ -216,7 +216,7 @@ window.INVENTORY = [
   },
   {
     id: "2024-icon-i60l",
-    status: "available",
+    status: "sold",
     year: 2024,
     make: "ICON",
     model: "i60L",

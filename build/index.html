@@ -72,11 +72,11 @@
       <div class="wrap bhero__inner">
         <p class="eyebrow eyebrow--light">Custom builds</p>
         <h1>Design your custom cart.</h1>
-        <p class="bhero__lede">Tap the photos that look like you. Every cart pictured is one we built. It takes about four minutes, and you'll get a build quote back within a day.</p>
+        <p class="bhero__lede">Tap the photos that look like you. Every cart pictured is one we built. It takes about four minutes, you see a price range as you go, and you'll get a written quote back within a day.</p>
       </div>
     </section>
 
-    <div class="bprogress" aria-hidden="true"><div class="wrap bprogress__inner"><div class="bprogress__bar"><i id="pbar"></i></div><span id="ptxt">0 of 10 answered</span></div></div>
+    <div class="bprogress" aria-hidden="true"><div class="wrap bprogress__inner"><div class="bprogress__bar"><i id="pbar"></i></div><span id="ptxt">0 of 11 answered</span></div></div>
 
     <div class="wrap wrap--build">
       <form id="build-form" class="bform" autocomplete="on" novalidate>
@@ -91,15 +91,21 @@
     <label class="opt"><input type="radio" name="start" value="Buy a cart from Eluxen inventory and customize"><img src="/images/carts/ezgo-express-l6-2019.webp" alt="Lifted black six-seat cart on a driveway" loading="lazy"><div class="opt__txt"><b>Customize one of ours</b><em>Start from Eluxen inventory</em></div></label>
   </div>
   <div class="bfields" style="margin-top:16px">
-    <label class="bfield">If it's your cart: year, make and model<input type="text" id="owncart" name="owncart" placeholder="e.g. 2021 Club Car Onward"></label>
-    <label class="bfield">Preferred brand, if any<input type="text" id="brand" name="brand" placeholder="EZGO, Club Car, ICON, no preference…"></label>
+    <label class="bfield" data-show="start:own">Your cart: year, make and model<input type="text" id="owncart" name="owncart" placeholder="e.g. 2021 Club Car Onward"></label>
+    <label class="bfield" data-show="start:source">Preferred brand, if any<input type="text" id="brand" name="brand" placeholder="EZGO, Club Car, ICON, no preference…"></label>
+  </div>
+  <h3>Gas or electric?</h3>
+  <div class="picks" role="radiogroup" aria-label="Power type">
+    <label class="pick"><input type="radio" name="power" value="Electric"><span>Electric</span></label>
+    <label class="pick"><input type="radio" name="power" value="Gas"><span>Gas</span></label>
+    <label class="pick"><input type="radio" name="power" value="Either, recommend for me"><span>Either</span></label>
   </div>
 </fieldset>
 
 <fieldset class="bstep">
   <div class="bstep__n">Step 2 · How you'll use it</div>
   <h2>What's the cart for?</h2>
-  <p class="bstep__lede">Pick everything that applies. This decides battery size, tires and speed.</p>
+  <p class="bstep__lede">Pick everything that applies. This decides battery size and tires.</p>
   <div class="picks" role="group" aria-label="Uses">
     <label class="pick"><input type="checkbox" name="use" value="Neighborhood cruising"><span>Neighborhood cruising</span></label>
     <label class="pick"><input type="checkbox" name="use" value="School runs with kids"><span>School runs with kids</span></label>
@@ -133,7 +139,25 @@
 </fieldset>
 
 <fieldset class="bstep">
-  <div class="bstep__n">Step 4 · Stance and wheels</div>
+  <div class="bstep__n">Step 4 · Who it's for</div>
+  <h2>Where should the quote go?</h2>
+  <p class="bstep__lede">A name and a phone or email saves your build so far. Everything after this is detail we can also sort out on a call.</p>
+  <div class="bfields">
+    <label class="bfield">Name<input type="text" id="name" name="name" autocomplete="name" required></label>
+    <label class="bfield">Phone<input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel"></label>
+    <label class="bfield">Email<input type="email" id="email" name="email" autocomplete="email"></label>
+    <label class="bfield">Neighborhood<input type="text" id="hood" name="hood" placeholder="Nocatee, Ponte Vedra, St. Johns…"></label>
+  </div>
+  <h3>Best way to reach you</h3>
+  <div class="picks" role="radiogroup" aria-label="Contact preference">
+    <label class="pick"><input type="radio" name="contact" value="Text"><span>Text</span></label>
+    <label class="pick"><input type="radio" name="contact" value="Call"><span>Call</span></label>
+    <label class="pick"><input type="radio" name="contact" value="Email"><span>Email</span></label>
+  </div>
+</fieldset>
+
+<fieldset class="bstep">
+  <div class="bstep__n">Step 5 · Stance and wheels</div>
   <h2>How should it sit?</h2>
   <p class="bstep__lede">Lifted carts look bigger and clear curbs and sand. Stock height is easier to climb into and rides softer.</p>
   <div class="opts">
@@ -163,7 +187,7 @@
 </fieldset>
 
 <fieldset class="bstep">
-  <div class="bstep__n">Step 5 · Color and seats</div>
+  <div class="bstep__n">Step 6 · Color and seats</div>
   <h2>Pick the look</h2>
   <p class="bstep__lede">Body color, then seats. We can match an HOA color or your truck.</p>
   <h3>Body color</h3>
@@ -206,7 +230,7 @@
 </fieldset>
 
 <fieldset class="bstep">
-  <div class="bstep__n">Step 6 · Lighting</div>
+  <div class="bstep__n">Step 7 · Lighting</div>
   <h2>How should it look after dark?</h2>
   <div class="brow">
     <figure><img src="/images/carts/ezgo-express-l6-2019-night-front.webp" alt="Cart at night with green halo headlights and purple underglow" loading="lazy"><figcaption>LED headlights with color halos and underglow</figcaption></figure>
@@ -223,7 +247,7 @@
 </fieldset>
 
 <fieldset class="bstep">
-  <div class="bstep__n">Step 7 · Sound and tech</div>
+  <div class="bstep__n">Step 8 · Sound and tech</div>
   <h2>Music, screen and charging</h2>
   <div class="opts opts--wide">
     <label class="opt"><input type="checkbox" name="tech" value="Bluetooth soundbar"><img src="/images/carts/ezgo-express-l6-2019-soundbar.webp" alt="Bluetooth soundbar mounted under the roof" loading="lazy"><div class="opt__txt"><b>Bluetooth soundbar</b><em>Mounted under the roof</em></div></label>
@@ -239,7 +263,7 @@
 </fieldset>
 
 <fieldset class="bstep">
-  <div class="bstep__n">Step 8 · Comfort and protection</div>
+  <div class="bstep__n">Step 9 · Comfort and protection</div>
   <h2>Add-ons</h2>
   <div class="picks" role="group" aria-label="Add-ons">
     <label class="pick"><input type="checkbox" name="addons" value="Extended roof"><span>Extended roof</span></label>
@@ -257,9 +281,9 @@
   </div>
 </fieldset>
 
-<fieldset class="bstep">
-  <div class="bstep__n">Step 9 · Power</div>
-  <h2>Battery and speed</h2>
+<fieldset class="bstep" data-hide="power:Gas">
+  <div class="bstep__n">Step 10 · Power</div>
+  <h2>Battery</h2>
   <div class="brow">
     <figure><img src="/images/carts/ezgo-express-l6-2019-battery.webp" alt="A 70.4-volt 105 amp-hour lithium battery installed in a cart" loading="lazy"><figcaption>Lithium pack with the charger mounted onboard</figcaption></figure>
     <div>
@@ -268,26 +292,21 @@
         <label class="pick"><input type="radio" name="battery" value="Keep the current battery"><span>Keep my current battery</span></label>
         <label class="pick"><input type="radio" name="battery" value="Recommend for me"><span>Recommend for me</span></label>
       </div>
-      <p class="bstep__lede" style="margin-top:12px">Lithium is lighter, charges faster, and needs no watering. Unless you're building a titled LSV, every Eluxen cart is set to 25 mph or under and sold as a golf cart.</p>
-      <h3>Top speed</h3>
-      <div class="picks" role="radiogroup" aria-label="Top speed">
-        <label class="pick"><input type="radio" name="speed" value="Under 20 mph (golf-cart rules)"><span>Under 20 mph</span></label>
-        <label class="pick"><input type="radio" name="speed" value="Up to 25 mph"><span>Up to 25 mph</span></label>
-        <label class="pick"><input type="radio" name="speed" value="Street-legal LSV, plated"><span>Street-legal LSV</span></label>
-      </div>
+      <p class="bstep__lede" style="margin-top:12px">Lithium is lighter, charges faster, needs no watering, and holds its range. Every pack we install comes with a written battery report.</p>
     </div>
   </div>
 </fieldset>
 
 <fieldset class="bstep">
-  <div class="bstep__n">Step 10 · Budget and timing</div>
+  <div class="bstep__n">Step 11 · Budget and timing</div>
   <h2>Budget and timeline</h2>
   <h3>All-in budget <small>(cart plus build)</small></h3>
+  <p class="bstep__lede" id="budget-hint" hidden></p>
   <div class="picks" role="radiogroup" aria-label="Budget">
-    <label class="pick"><input type="radio" name="budget" value="Under $8,000"><span>Under $8K</span></label>
-    <label class="pick"><input type="radio" name="budget" value="$8,000 to $11,000"><span>$8K to $11K</span></label>
-    <label class="pick"><input type="radio" name="budget" value="$11,000 to $15,000"><span>$11K to $15K</span></label>
-    <label class="pick"><input type="radio" name="budget" value="$15,000+"><span>$15K+</span></label>
+    <label class="pick"><input type="radio" name="budget" value="Under $10,000"><span>Under $10K</span></label>
+    <label class="pick"><input type="radio" name="budget" value="$10,000 to $13,000"><span>$10K to $13K</span></label>
+    <label class="pick"><input type="radio" name="budget" value="$13,000 to $16,000"><span>$13K to $16K</span></label>
+    <label class="pick"><input type="radio" name="budget" value="$16,000+"><span>$16K+</span></label>
     <label class="pick"><input type="radio" name="budget" value="Upgrades only, own cart"><span>Upgrades only</span></label>
   </div>
   <h3>When do you want it?</h3>
@@ -297,26 +316,20 @@
     <label class="pick"><input type="radio" name="timeline" value="1 to 3 months"><span>1 to 3 months</span></label>
     <label class="pick"><input type="radio" name="timeline" value="It's a gift, specific date (see notes)"><span>It's a gift</span></label>
   </div>
-</fieldset>
-
-<fieldset class="bstep">
-  <div class="bstep__n">Last step</div>
-  <h2>About you</h2>
-  <div class="bfields">
-    <label class="bfield">Name<input type="text" id="name" name="name" autocomplete="name" required></label>
-    <label class="bfield">Phone<input type="tel" id="phone" name="phone" autocomplete="tel"></label>
-    <label class="bfield">Email<input type="email" id="email" name="email" autocomplete="email"></label>
-    <label class="bfield">Neighborhood<input type="text" id="hood" name="hood" placeholder="Nocatee, Ponte Vedra, St. Johns…"></label>
-  </div>
-  <h3>Best way to reach you</h3>
-  <div class="picks" role="radiogroup" aria-label="Contact preference">
-    <label class="pick"><input type="radio" name="contact" value="Text"><span>Text</span></label>
-    <label class="pick"><input type="radio" name="contact" value="Call"><span>Call</span></label>
-    <label class="pick"><input type="radio" name="contact" value="Email"><span>Email</span></label>
+  <h3>How did you find us?</h3>
+  <div class="picks" role="radiogroup" aria-label="Source">
+    <label class="pick"><input type="radio" name="source" value="Google"><span>Google</span></label>
+    <label class="pick"><input type="radio" name="source" value="Facebook Marketplace"><span>Facebook Marketplace</span></label>
+    <label class="pick"><input type="radio" name="source" value="Saw an Eluxen cart around town"><span>Saw one of your carts</span></label>
+    <label class="pick"><input type="radio" name="source" value="Friend or neighbor"><span>Friend or neighbor</span></label>
+    <label class="pick"><input type="radio" name="source" value="Nextdoor or community group"><span>Nextdoor / community group</span></label>
+    <label class="pick"><input type="radio" name="source" value="Other"><span>Other</span></label>
   </div>
   <label class="bfield" style="margin-top:18px">Anything else? Inspiration carts, a must-have, a date it needs to be ready by
     <textarea id="notes" name="notes" placeholder="Saw a cart at the Nocatee Splash Park I loved: matte gray, tan seats…"></textarea></label>
 </fieldset>
+
+
 
   <input class="form__trap" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
 </form>
@@ -324,6 +337,11 @@
       <aside class="bsummary" id="summary" aria-labelledby="summary-title">
         <p class="eyebrow">Your build</p>
         <h2 id="summary-title">Build sheet</h2>
+        <div class="best" id="est" hidden>
+          <div class="best__head"><span>Estimated all-in</span><strong id="est-total"></strong></div>
+          <ul class="best__lines" id="est-lines"></ul>
+          <p class="best__fine" id="est-fine">A planning range from our current build pricing. Your written quote replaces it. Price before sales tax; delivery and walkthrough included in the free zone.</p>
+        </div>
         <dl class="bspec" id="spec"></dl>
         <div class="bsummary__actions">
           <button type="submit" form="build-form" class="btn btn--primary btn--lg" id="send">Send my build</button>
@@ -332,10 +350,15 @@
         </div>
         <p class="form__status" id="build-status" role="status" aria-live="polite" hidden></p>
         <p class="bsummary__fine">Goes straight to our inbox, and Nick replies with a quote within a day. Prefer to text? Copy the build sheet and send it to <a href="sms:+19043955452">(904) 395-5452</a> with a screenshot of any cart you love.</p>
+        <ol class="bnext" aria-label="What happens next">
+          <li><b>Within a day</b><span>Nick reviews your sheet and sends a written quote with a lead time.</span></li>
+          <li><b>Lock it in</b><span>A signed spec sheet and a 40% deposit reserve your build slot and your base cart.</span></li>
+          <li><b>3 to 6 weeks</b><span>Build, then free delivery and a full walkthrough at your home.</span></li>
+        </ol>
         <textarea id="out" class="form__trap" aria-hidden="true" tabindex="-1"></textarea>
       </aside>
 
-      <p class="bfoot">Free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine and Jacksonville. Custom carts are sold as golf carts unless built and titled as an LSV. Photos show carts built by Eluxen Carts.</p>
+      <p class="bfoot">Free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine and Jacksonville. Photos show carts built by Eluxen Carts.</p>
     </div>
   </main>
 

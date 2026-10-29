@@ -115,7 +115,15 @@
       return;
     }
     f.set("_subject", subject);
-    if (String(f.get("email")).includes("@")) f.set("_replyto", f.get("email"));
+    // Formspree validates any field named "email": drop it when blank, catch typos before sending.
+    const email = String(f.get("email") || "").trim();
+    if (!email) f.delete("email");
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showStatus("err", "<strong>That email doesn't look right.</strong> Fix it, or clear it and we'll text you.");
+      form.elements.email.focus();
+      return;
+    }
+    else f.set("_replyto", email);
 
     const btn = form.querySelector("button[type=submit]");
     btn.disabled = true;

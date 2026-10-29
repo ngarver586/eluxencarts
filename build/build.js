@@ -266,6 +266,11 @@
     const email = vals("email")[0] || "";
     const name = vals("name")[0] || "";
     nameEl.setAttribute("aria-invalid", name ? "false" : "true");
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showStatus("err", "That email doesn't look right. Fix it, or clear it and we'll text you instead.");
+      document.getElementById("email").focus();
+      return;
+    }
     if (!name || (!phone && !email)) {
       showStatus("err", "Add your name and a phone number or email so we can send your quote.");
       (name ? document.getElementById("phone") : nameEl).focus();
@@ -280,7 +285,11 @@
     if (email) body.set("_replyto", email);
     body.set("topic", "Custom build questionnaire");
     body.set("Estimated all-in", estText);
-    sheetLines().forEach(([label, v]) => body.set(label, v.length ? v.join(", ") : "-"));
+    // Formspree validates any field named "email", so leave it out when it's blank.
+    sheetLines().forEach(([label, v]) => {
+      if (label === "Email" && !v.length) return;
+      body.set(label, v.length ? v.join(", ") : "-");
+    });
     body.set("Build sheet", document.getElementById("out").value);
     body.set("Page", location.href);
 

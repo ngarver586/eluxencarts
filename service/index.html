@@ -31,8 +31,9 @@
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[href^="tel:"],a[href^="sms:"]');
       if (!a) return;
-      var kind = a.getAttribute('href').indexOf('tel:') === 0 ? 'call_click' : 'text_click';
-      gtag('event', kind, { send_to: 'AW-18531936305', event_category: 'contact', event_label: location.pathname });
+      var isCall = a.getAttribute('href').indexOf('tel:') === 0;
+      // Google Ads conversion actions (call_click / text_click) need their conversion labels to count.
+      gtag('event', 'conversion', { send_to: isCall ? 'AW-18531936305/bediCOSymKkdELHQ24RF' : 'AW-18531936305/56MyCOeymKkdELHQ24RF', event_label: location.pathname });
     }, true);
   </script>
 </head>

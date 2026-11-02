@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eluxencarts.com/sitemap.xml

@@ -11,7 +11,7 @@
 window.INVENTORY = [
   {
     id: "2022-royal-ev-crown-6l",
-    status: "available",
+    status: "sold",
     year: 2022,
     make: "Royal EV",
     model: "Crown 6L",
@@ -63,7 +63,7 @@ window.INVENTORY = [
   },
   {
     id: "2025-evolution-forester-6-plus",
-    status: "available",
+    status: "sold",
     year: 2025,
     make: "Evolution",
     model: "Forester 6 Plus",
@@ -112,7 +112,7 @@ window.INVENTORY = [
   },
   {
     id: "2019-ezgo-express-l6",
-    status: "available",
+    status: "sold",
     year: 2019,
     make: "EZGO",
     model: "Express L6",

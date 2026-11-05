@@ -58,6 +58,7 @@ window.INVENTORY = [
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
+    reportUrl: "https://cartfol.io/Nkc9qGT",
     inquirySubject: "Inquiry: 2023 EPIC E60L Blue $9,900"
   },
   {

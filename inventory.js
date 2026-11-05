@@ -10,6 +10,57 @@
 */
 window.INVENTORY = [
   {
+    id: "2023-epic-e60l-blue",
+    status: "available",
+    year: 2023,
+    make: "EPIC",
+    model: "E60L",
+    name: "EPIC E60L Six Passenger, Eco Gen3 Lithium",
+    price: 9900,
+    seats: 6,
+    power: "lithium",
+    voltage: "51.2V",
+    batteryDetail: "Eco Battery Gen3 51.2V 105Ah, 5.3 kWh",
+    topSpeed: "25 mph",
+    miles: 272,
+    lifted: true,
+    color: "Blue",
+    location: "Nocatee, FL",
+    photos: [
+      "images/carts/epic-e60l-2023-blue.webp",
+      "images/carts/epic-e60l-2023-blue-front-quarter.webp",
+      "images/carts/epic-e60l-2023-blue-side.webp",
+      "images/carts/epic-e60l-2023-blue-rear.webp",
+      "images/carts/epic-e60l-2023-blue-rear-driver.webp",
+      "images/carts/epic-e60l-2023-blue-front-passenger.webp",
+      "images/carts/epic-e60l-2023-blue-cockpit.webp",
+      "images/carts/epic-e60l-2023-blue-dash.webp",
+      "images/carts/epic-e60l-2023-blue-soundbar.webp",
+      "images/carts/epic-e60l-2023-blue-battery.webp"
+    ],
+    highlights: [
+      "Eco Battery Gen3 51.2V 105Ah, dash shows true battery percentage",
+      "GPS-verified 25 mph",
+      "272 miles",
+      "Factory lifted, 14-inch black wheels, street tires",
+      "Glass windshield with wiper",
+      "Front cargo basket and brush guard",
+      "Diamond-stitched seats with blue stitching, rear flip seat",
+      "Nexgear Bluetooth soundbar",
+      "Upgrades available before delivery"
+    ],
+    summary: "Factory-lifted 2023 six passenger with 272 miles on a factory Eco Battery Gen3 lithium pack and the Eco CAN charger. Glass windshield with wiper, cargo basket, brush guard, soundbar, diamond-stitched seats. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
+    description: [
+      "2023 EPIC E60L six passenger in blue, factory lifted, on a factory Eco Battery Gen3 LiFePO4 pack (51.2V 105Ah, 5.3 kWh) with the Eco CAN charger. 272 miles. Top speed GPS-verified at 25 mph. The Gen3 pack reports real state of charge to the dash.",
+      "I've been through this cart end to end: battery checked, tire pressures and lug torque set, lighting and signals tested, controller setting documented.",
+      "14-inch black wheels on street tires, glass windshield with wiper, extended roof, side mirrors, fender flares, front cargo basket, brush guard, six black diamond-stitched seats with blue stitching, seat belts, rear-facing flip seat with grab rail, carbon-wrap dash, 7-inch display, Nexgear Bluetooth soundbar, LED headlights, tail and turn signals.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
+      "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
+      "Sold as a golf cart; on-road compliance is the buyer's responsibility."
+    ],
+    inquirySubject: "Inquiry: 2023 EPIC E60L Blue $9,900"
+  },
+  {
     id: "2022-royal-ev-crown-6l",
     status: "sold",
     year: 2022,

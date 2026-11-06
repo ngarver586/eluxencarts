@@ -39,7 +39,7 @@ window.INVENTORY = [
       "images/carts/epic-e60l-2023-blue-battery.webp"
     ],
     highlights: [
-      "Eco Battery Gen3 51.2V 105Ah, dash shows true battery percentage",
+      "Eco Battery Gen3 51.2V 105Ah",
       "GPS-verified 25 mph",
       "272 miles",
       "Factory lifted, 14-inch black wheels, street tires",
@@ -51,7 +51,7 @@ window.INVENTORY = [
     ],
     summary: "Factory-lifted 2023 six passenger with 272 miles on a factory Eco Battery Gen3 lithium pack and the Eco CAN charger. Glass windshield with wiper, cargo basket, brush guard, soundbar, diamond-stitched seats. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
-      "2023 EPIC E60L six passenger in blue, factory lifted, on a factory Eco Battery Gen3 LiFePO4 pack (51.2V 105Ah, 5.3 kWh) with the Eco CAN charger. 272 miles. Top speed GPS-verified at 25 mph. The Gen3 pack reports real state of charge to the dash.",
+      "2023 EPIC E60L six passenger in blue, factory lifted, on a factory Eco Battery Gen3 LiFePO4 pack (51.2V 105Ah, 5.3 kWh) with the Eco CAN charger. 272 miles. Top speed GPS-verified at 25 mph.",
       "I've been through this cart end to end: battery checked, tire pressures and lug torque set, lighting and signals tested, controller setting documented.",
       "14-inch black wheels on street tires, glass windshield with wiper, extended roof, side mirrors, fender flares, front cargo basket, brush guard, six black diamond-stitched seats with blue stitching, seat belts, rear-facing flip seat with grab rail, carbon-wrap dash, 7-inch display, Nexgear Bluetooth soundbar, LED headlights, tail and turn signals.",
       "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",

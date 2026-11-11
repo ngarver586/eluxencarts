@@ -25,7 +25,7 @@ window.INVENTORY = [
     miles: 272,
     lifted: true,
     color: "Blue",
-    location: "Nocatee, FL",
+    location: "Ponte Vedra, FL",
     photos: [
       "images/carts/epic-e60l-2023-blue.webp",
       "images/carts/epic-e60l-2023-blue-front-quarter.webp",
@@ -77,7 +77,7 @@ window.INVENTORY = [
     miles: 450,
     lifted: true,
     color: "Black",
-    location: "Nocatee, FL",
+    location: "Ponte Vedra, FL",
     photos: [
       "images/carts/royal-ev-crown-6l-2022.webp",
       "images/carts/royal-ev-crown-6l-2022-front.webp",
@@ -129,7 +129,7 @@ window.INVENTORY = [
     miles: 2184,
     lifted: true,
     color: "Black",
-    location: "Nocatee, FL",
+    location: "Ponte Vedra, FL",
     photos: [
       "images/carts/evolution-forester-2025.webp",
       "images/carts/evolution-forester-2025-front-quarter.webp",
@@ -177,7 +177,7 @@ window.INVENTORY = [
     topSpeed: "25 mph",
     lifted: true,
     color: "Black",
-    location: "Nocatee, FL",
+    location: "Ponte Vedra, FL",
     photos: [
       "images/carts/ezgo-express-l6-2019.webp",
       "images/carts/ezgo-express-l6-2019-front.webp",
@@ -232,7 +232,7 @@ window.INVENTORY = [
     miles: 3177,
     lifted: true,
     color: "Blue",
-    location: "Nocatee, FL",
+    location: "Ponte Vedra, FL",
     photos: [
       "images/carts/epic-e60l-2023.webp",
       "images/carts/epic-e60l-2023-front.webp",
@@ -282,7 +282,7 @@ window.INVENTORY = [
     topSpeed: "25 mph",
     miles: 2331,
     lifted: true,
-    location: "Nocatee, FL",
+    location: "Ponte Vedra, FL",
     photos: [
       "images/carts/icon-i60l-2024.webp",
       "images/carts/icon-i60l-2024-front.webp",

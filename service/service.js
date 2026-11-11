@@ -134,7 +134,7 @@
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       form.reset();
       update();
-      showStatus("ok", `<strong>Got it, ${esc(f.get("name"))}.</strong> I'll text ${esc(f.get("phone"))} to confirm a time. Same day in Nocatee? Text <a href="sms:${PHONE}">(904) 395-5452</a> to make sure it's seen.`);
+      showStatus("ok", `<strong>Got it, ${esc(f.get("name"))}.</strong> We'll text ${esc(f.get("phone"))} to confirm a time. Same day in Nocatee? Text <a href="sms:${PHONE}">(904) 395-5452</a> to make sure it's seen.`);
     } catch (err) {
       showStatus("err", `<strong>That didn't send.</strong> Please text or call <a href="sms:${PHONE}">(904) 395-5452</a>, or email <a href="mailto:${EMAIL}">${EMAIL}</a>.`);
     } finally {

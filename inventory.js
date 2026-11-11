@@ -52,9 +52,9 @@ window.INVENTORY = [
     summary: "Factory-lifted 2023 six passenger with 272 miles on a factory Eco Battery Gen3 lithium pack and the Eco CAN charger. Glass windshield with wiper, cargo basket, brush guard, soundbar, diamond-stitched seats. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
       "2023 EPIC E60L six passenger in blue, factory lifted, on a factory Eco Battery Gen3 LiFePO4 pack (51.2V 105Ah, 5.3 kWh) with the Eco CAN charger. 272 miles. Top speed GPS-verified at 25 mph.",
-      "I've been through this cart end to end: battery checked, tire pressures and lug torque set, lighting and signals tested, controller setting documented.",
+      "We've been through this cart end to end: battery checked, tire pressures and lug torque set, lighting and signals tested, controller setting documented.",
       "14-inch black wheels on street tires, glass windshield with wiper, extended roof, side mirrors, fender flares, front cargo basket, brush guard, six black diamond-stitched seats with blue stitching, seat belts, rear-facing flip seat with grab rail, carbon-wrap dash, 7-inch display, Nexgear Bluetooth soundbar, LED headlights, tail and turn signals.",
-      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell us what you have in mind and we'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
@@ -104,9 +104,9 @@ window.INVENTORY = [
     summary: "Factory-lifted 2022 six passenger with 450 miles on its original 72V 100Ah lithium pack. Pack and BMS verified through a full charge cycle, brakes, lighting and signals checked, tire pressures and lug torque set. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
       "2022 Royal EV Crown 6L six passenger in black, factory lifted, on a 72V Hangzhou Speed LiFePO4 100Ah pack (7.2 kWh) with Bluetooth BMS monitoring and the charger included. 450 miles. Top speed 25 mph.",
-      "I've been through this cart end to end: pack and BMS verified through a full charge cycle, brakes, steering and suspension checked, lighting and turn signals tested, tire pressures and lug torque set.",
+      "We've been through this cart end to end: pack and BMS verified through a full charge cycle, brakes, steering and suspension checked, lighting and turn signals tested, tire pressures and lug torque set.",
       "14-inch black alloy wheels on 23x10-14 Duro all-terrain tires, hard top, folding windshield, turn-signal mirrors, rear light bar, LED headlights and taillights, fog lights in the front brush guard, underglow accent lighting, front cargo basket, six black seats with belts at every position, rear flip seat with grab rail, Bluetooth touchscreen head unit, overhead soundbar, Gussi Italia steering wheel, locking glove box.",
-      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell us what you have in mind and we'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "No title; this cart was never titled or registered. The factory build plate reads LSV. Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
@@ -153,9 +153,9 @@ window.INVENTORY = [
     summary: "Factory-lifted 2025 six passenger on Evolution's largest lithium pack, 180Ah, with the stock charger. One year old with 2,184 miles. Controller set, lighting tested, tire pressures and lug torque set. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
       "2025 Evolution Forester 6 Plus six passenger in black, factory lifted, on a 48V Evolution LiFePO4 180Ah pack (8.64 kWh) with the stock Evolution charger. 2,184 miles. Top speed 25 mph.",
-      "I've been through this cart end to end: battery checked and balanced, controller set and documented, lighting and signals tested, tire pressures and lug torque set.",
+      "We've been through this cart end to end: battery checked and balanced, controller set and documented, lighting and signals tested, tire pressures and lug torque set.",
       "14-inch machined aluminum wheels on all-terrain tires, extended top, folding windshield, side mirrors, fender flares, front brush guard, LED headlights, tail and turn signals, six black seats with a rear flip seat and grab rail, 7-inch touchscreen display, dash-mounted speakers.",
-      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell us what you have in mind and we'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
@@ -207,9 +207,9 @@ window.INVENTORY = [
     summary: "The EZGO six-passenger platform, lifted, on a brand new 72V 105Ah lithium pack (7.4 kWh) with a 5-year factory warranty and its matched 18A charger mounted onboard. GPS-verified at 25 mph. Controller reprogrammed for the pack, LED headlights, turn signals, CarPlay screen and Bluetooth soundbar. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
       "2019 EZGO Express L6 six passenger, lifted, on a brand new 72V FLLYROWER LiFePO4 105Ah lithium pack (7.4 kWh) with a 5-year factory warranty and its matched 18A charger mounted onboard. Top speed GPS-verified at 25 mph. This is the EZGO six-passenger platform, not an import badge, with a battery that will outlast the cart.",
-      "I've been through this cart end to end: factory lead-acid bank removed and replaced with the new lithium pack, controller reprogrammed for it with smoother acceleration, new LED headlights, turn signals with hazards, CarPlay screen and soundbar wired in. It drives the way a new one should.",
+      "We've been through this cart end to end: factory lead-acid bank removed and replaced with the new lithium pack, controller reprogrammed for it with smoother acceleration, new LED headlights, turn signals with hazards, CarPlay screen and soundbar wired in. It drives the way a new one should.",
       "Lift kit, 14-inch SS wheels on 23x10R14 street tires, fender flares, brush guard, OEM top, folding windshield, side mirrors, rear seat that folds down into a cargo deck, RHOX LED headlights with Bluetooth color-changing halos, underglow, roof light bar, Kemimoto Bluetooth soundbar, 10-inch CarPlay and Android Auto screen, live battery display, USB-C and QC 3.0 charging with voltmeter.",
-      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell us what you have in mind and we'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
@@ -258,9 +258,9 @@ window.INVENTORY = [
     summary: "Factory-lifted six passenger converted to an Eco Battery 51.2V lithium pack with the matching CAN charger. Four-wheel disc brakes, glass windshield with wiper, 10-inch dash. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
       "2023 EPIC E60L six passenger, factory lifted, on a 51.2V Eco Battery lithium pack with the matching Eco CAN charger. 3,177 miles. Top speed GPS-verified at 25 mph.",
-      "I've been through this cart end to end: lead-acid pack removed and replaced with the Eco Battery lithium system, controller tuned for the pack, brakes checked on all four corners, wheel studs replaced and lugs torqued to spec.",
+      "We've been through this cart end to end: lead-acid pack removed and replaced with the Eco Battery lithium system, controller tuned for the pack, brakes checked on all four corners, wheel studs replaced and lugs torqued to spec.",
       "Four-wheel hydraulic disc brakes, BEAST Black Piranha 14-inch wheels on Ironclad A/T 23x10-14 tires, extended blue top, glass windshield with wiper, folding mirrors, black diamond-stitched seats with blue stitching, rear flip seat that converts to a cargo deck, 10-inch color dash, LED light bar, LED headlights and taillights, turn signals, Bluetooth soundbar, front brush guard with cargo basket, running boards, fender flares.",
-      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell us what you have in mind and we'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],
@@ -306,9 +306,9 @@ window.INVENTORY = [
     summary: "Factory-lifted six passenger on the same Eco Battery lithium pack ICON installs new, with the matching CAN charger. Controller tuned, speedometer calibrated against GPS, brakes and suspension checked. Comes with a written Cart Report and free delivery in the Nocatee corridor. Upgrades and customization available before delivery.",
     description: [
       "2024 ICON i60L six passenger, factory lifted, on a 51.2V Eco Battery lithium pack with the EB gauge and matching Eco CAN charger. 2,331 miles. Top speed GPS-verified at 25 mph.",
-      "I've been through this cart end to end: controller reprogrammed and tuned for the Eco pack, speedometer calibrated against GPS on the 23-inch tires, brakes and suspension checked, tire pressures set.",
+      "We've been through this cart end to end: controller reprogrammed and tuned for the Eco pack, speedometer calibrated against GPS on the 23-inch tires, brakes and suspension checked, tire pressures set.",
       "Extended white top, fold-down windshield, folding mirrors, brown premium seats with a rear flip seat that converts to a cargo deck, LED headlights and taillights, front brush guard, running boards, fender flares, Bluetooth LED soundbar with color control, front disc brakes.",
-      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell me what you have in mind and I'll quote it at the walkthrough, then have it done before it reaches your driveway.",
+      "Upgrades and customization are available before delivery: audio, lighting, wheels and tires, seats and upholstery, and custom finishes. Tell us what you have in mind and we'll quote it at the walkthrough, then have it done before it reaches your driveway.",
       "Includes a written Cart Report, free delivery and walkthrough in Nocatee, Ponte Vedra, St. Johns, St. Augustine, and Jacksonville ($3 per mile outside that area), charger and keys.",
       "Sold as a golf cart; on-road compliance is the buyer's responsibility."
     ],

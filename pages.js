@@ -66,7 +66,7 @@
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, { method: "POST", body: f, headers: { Accept: "application/json" } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       form.reset();
-      showStatus("ok", `<strong>Got it, ${esc(f.get("name"))}.</strong> I'll text ${esc(f.get("phone"))} with an offer or a couple of questions. Want it faster? Text photos to <a href="sms:${PHONE}">(904) 395-5452</a>.`);
+      showStatus("ok", `<strong>Got it, ${esc(f.get("name"))}.</strong> We'll text ${esc(f.get("phone"))} with an offer or a couple of questions. Want it faster? Text photos to <a href="sms:${PHONE}">(904) 395-5452</a>.`);
     } catch (err) {
       showStatus("err", `<strong>That didn't send.</strong> Please text or call <a href="sms:${PHONE}">(904) 395-5452</a>, or email <a href="mailto:${EMAIL}">${EMAIL}</a>.`);
     } finally {

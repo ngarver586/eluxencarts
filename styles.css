@@ -349,3 +349,10 @@ p { margin: 0 0 1em; }
 .form__call { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; background: var(--green-soft); border: 1px solid #cfe7d8; border-radius: 10px; padding: 14px 16px; margin: 0 0 18px; font-size: 1.05rem; color: var(--ink); }
 .form__call strong { color: var(--navy); }
 .form__call .btn { padding: 12px 18px; }
+
+/* Online scheduler panel on the service page */
+.book-online { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; background: #ffffff; border-radius: 12px; padding: 22px 24px; margin: 0 0 28px; color: var(--ink); }
+.book-online h3 { margin: 0 0 6px; font-size: 1.2rem; color: var(--navy); }
+.book-online p { margin: 0; color: var(--muted); max-width: 520px; }
+.book-online .btn { flex: 0 0 auto; }
+.book-online__or { color: #dbe4ee; margin: 0 0 14px; font-weight: 600; }

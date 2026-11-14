@@ -35,7 +35,7 @@
   // ---------------------------------------------------------------------------
   // Running estimate. Every value is a [low, high] planning range in dollars,
   // aligned with the published "from" prices on the home page Upgrades section
-  // (soundbar from $349, LED kit from $449, lift + wheels + tires from $799,
+  // (soundbar from $349, LED kit from $199, lift + wheels + tires from $799,
   // full sound from $899, lithium from $1,899). Edit here, not in the HTML.
   // ---------------------------------------------------------------------------
   const BASE = {
@@ -65,7 +65,7 @@
       "Marine-style SeaDek": ["Marine-style foam floor", 450, 800],
     },
     lights: {
-      "LED headlights and taillights": ["LED headlight and taillight kit", 449, 650],
+      "LED headlights and taillights": ["LED headlight and taillight kit", 199, 650],
       "Turn signals and hazards": ["Turn signals and hazards", 150, 300],
       "Color halo headlights": ["Color halo headlights", 200, 400],
       "Underglow": ["Underglow", 150, 350],

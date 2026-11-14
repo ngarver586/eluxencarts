@@ -71,7 +71,7 @@
   function card(c) {
     const s = specs(c).slice(0, 4);
     const tags = c.highlights || [];
-    const shown = tags.slice(0, 4);
+    const shown = tags.slice(0, 3);
     return `
       <article class="card${c.status === "sold" ? " is-sold" : ""}">
         <div class="card__photo" data-id="${esc(c.id)}" data-i="0">
@@ -92,15 +92,32 @@
           </div>
           <dl class="specs">${s.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
           ${c.summary ? `<p class="card__summary">${esc(c.summary)}</p>` : ""}
-          ${shown.length ? `<ul class="tags">${shown.map((h) => `<li>${esc(h)}</li>`).join("")}${tags.length > shown.length ? `<li class="tags__more"><button class="linklike" data-open="${esc(c.id)}">+${tags.length - shown.length} more</button></li>` : ""}</ul>` : ""}
+          ${shown.length ? `<ul class="tags">${shown.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>` : ""}
           ${ctas(c, false)}
           <button class="card__details linklike" data-open="${esc(c.id)}">See all photos &amp; full details</button>
         </div>
       </article>`;
   }
 
+  // Sold carts sit in a compact "Recently sold" row under the live inventory.
+  const soldGrid = document.getElementById("sold-grid");
+  const soldWrap = document.getElementById("sold");
+  const soldCard = (c) => `
+      <button class="sold-card" data-open="${esc(c.id)}" aria-label="See photos and details for the sold ${esc(fullName(c))}">
+        <img src="${esc(c.photos[0])}" alt="" loading="lazy" />
+        <span class="sold-card__body">
+          <span class="sold-card__name">${esc(c.year)} ${esc(c.make)} ${esc(c.model)}</span>
+          <span class="sold-card__price">Sold${c.price ? ` · ${money(c.price)}` : ""}</span>
+        </span>
+      </button>`;
+
   function render() {
-    let list = inventory.filter((c) => {
+    const live = inventory.filter((c) => c.status !== "sold");
+    const sold = inventory.filter((c) => c.status === "sold");
+    soldWrap.hidden = !sold.length;
+    soldGrid.innerHTML = sold.map(soldCard).join("");
+
+    let list = live.filter((c) => {
       if (state.seats !== "all" && (state.seats === "6" ? c.seats < 6 : c.seats !== +state.seats)) return false;
       if (state.power !== "all" && c.power !== state.power) return false;
       if (state.lifted && !c.lifted) return false;
@@ -109,15 +126,12 @@
     });
     if (state.sort === "price-asc") list.sort((a, b) => a.price - b.price);
     if (state.sort === "price-desc") list.sort((a, b) => b.price - a.price);
-    // Sold carts sink to the bottom.
-    list.sort((a, b) => (a.status === "sold") - (b.status === "sold"));
-
-    filtersEl.hidden = inventory.length < 2;
-    empty.hidden = inventory.length > 0;
+    filtersEl.hidden = live.length < 2;
+    empty.hidden = live.length > 0;
     grid.classList.toggle("is-single", list.length === 1);
     grid.innerHTML = list.length
       ? list.map(card).join("")
-      : inventory.length ? `<p class="no-match">No carts match those filters. <button class="linklike" id="reset">Clear filters</button></p>` : "";
+      : live.length ? `<p class="no-match">No carts match those filters. <button class="linklike" id="reset">Clear filters</button></p>` : "";
   }
 
   filtersEl.addEventListener("click", (e) => {
@@ -147,6 +161,11 @@
       const photo = o.closest(".card__photo");
       openDetail(o.dataset.open, photo ? +photo.dataset.i : 0);
     }
+  });
+
+  soldGrid.addEventListener("click", (e) => {
+    const o = e.target.closest("[data-open]");
+    if (o) openDetail(o.dataset.open);
   });
 
   // Card photo arrows: step through a listing's photos in place.

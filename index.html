@@ -7,7 +7,7 @@
   <meta name="description" content="Golf cart sales and service in Nocatee, Ponte Vedra, St. Johns, St. Augustine and Jacksonville, FL. Inspected pre-owned carts with free local delivery, at-home maintenance and detailing, repairs, lithium, lift, lighting and sound upgrades." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,700;112,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
@@ -68,9 +68,8 @@
     <section class="hero">
       <img class="hero__img" src="images/hero.webp" alt="Lifted black golf cart parked in a Nocatee driveway" />
       <div class="wrap hero__inner">
-        <p class="eyebrow eyebrow--light">Sales · Service · Custom builds</p>
-        <h1>Golf cart sales &amp; service in Nocatee &amp; Jacksonville.</h1>
-        <p class="hero__lede">Pre-owned carts, inspected and detailed, then delivered free to your driveway. Already own one? Maintenance and detailing come to your home, and repairs are picked up and returned. Want it lifted, lithium, or louder? We'll build it.</p>
+        <h1>Golf cart sales and service in Nocatee and Jacksonville</h1>
+        <p class="hero__lede">Inspected pre-owned carts, delivered free to your driveway. Maintenance, detailing and repairs for the cart you already own, plus lifts, lithium, lighting and sound.</p>
         <div class="hero__ctas">
           <a class="btn btn--primary btn--lg" href="#inventory">Shop Inventory</a>
           <a class="btn btn--light btn--lg" href="https://book.squareup.com/appointments/hdvrbtgexwevbs/location/LZGENA4VVJWZH/services" target="_blank" rel="noopener">Book Service</a>
@@ -85,7 +84,7 @@
         <div class="trust__item"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M20 13c0 5-3.5 7.5-7.7 8.9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg><div><strong>Fully inspected</strong><span>Batteries, brakes, electrical</span></div></div>
         <div class="trust__item"><svg viewBox="0 0 24 24"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7M7.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM17.5 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg><div><strong>Free local delivery</strong><span>Plus a full walkthrough</span></div></div>
         <div class="trust__item"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a6 6 0 0 1-8.3 7.1l-7.9 7.9a2.1 2.1 0 0 1-3-3l7.9-7.9a6 6 0 0 1 7.1-8.3z"/></svg><div><strong>Built to your spec</strong><span>Lift, lithium, lights, audio</span></div></div>
-        <div class="trust__item"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><strong>Backed after the sale</strong><span>Priority service on our carts</span></div></div>
+        <div class="trust__item"><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8zM14 3v5h5M9 13h6M9 17h6M9 9h2"/></svg><div><strong>Written Cart Report</strong><span>With every cart we sell</span></div></div>
       </div>
     </section>
 
@@ -94,7 +93,6 @@
       <div class="wrap">
         <div class="section__head section__head--row">
           <div>
-            <p class="eyebrow">In stock now</p>
             <h2>Current inventory</h2>
           </div>
           <p class="section__note">Every cart can be upgraded before delivery. <a href="#upgrades">See upgrade pricing →</a></p>
@@ -137,6 +135,14 @@
             <a class="btn btn--ghost" href="#contact">Send a message</a>
           </div>
         </div>
+
+        <div class="sold" id="sold" hidden>
+          <div class="sold__head">
+            <h3>Recently sold</h3>
+            <a class="sold__ask" href="sms:+19043955452?&body=Hi%20Eluxen%2C%20I'm%20looking%20for%20a%20cart%20like%20one%20you%20sold%3A%20">Want one like these? Text us &rarr;</a>
+          </div>
+          <div class="sold__grid" id="sold-grid"></div>
+        </div>
       </div>
     </section>
 
@@ -144,8 +150,7 @@
     <section class="section section--sand" id="upgrades">
       <div class="wrap">
         <div class="section__head">
-          <p class="eyebrow">Upgrades &amp; custom builds</p>
-          <h2>Make it yours before it hits your driveway.</h2>
+          <h2>Make it yours before it hits your driveway</h2>
           <p class="section__sub">Add upgrades to any cart you buy, or bring in the one you already own. Prices are typical installed starting points. Bundle with a cart purchase for preferred pricing.</p>
         </div>
 
@@ -190,8 +195,7 @@
       <div class="wrap">
         <div class="section__head section__head--row">
           <div>
-            <p class="eyebrow">Service &amp; detailing</p>
-            <h2>We come to you.</h2>
+            <h2>Service that comes to you</h2>
           </div>
           <p class="section__note">Maintenance and detailing in your driveway, scheduled same day in Nocatee. <a href="/service/">See service pricing →</a></p>
         </div>
@@ -209,7 +213,6 @@
     <section class="band" id="sell">
       <div class="wrap band__inner">
         <div>
-          <p class="eyebrow eyebrow--light">Sell your cart</p>
           <h2>Thinking of selling your golf cart?</h2>
           <p>Send a few photos, the year and make, and the battery type. We'll get back to you quickly with a straight answer.</p>
         </div>
@@ -224,14 +227,13 @@
     <section class="section" id="why">
       <div class="wrap why">
         <div class="why__story">
-          <p class="eyebrow">Why buy from Eluxen</p>
-          <h2>Know exactly what you're buying.</h2>
+          <h2>Know exactly what you're buying</h2>
           <p>Eluxen Carts started with a simple frustration: too many used carts sold as-is, with problems nobody mentioned until after the sale. Every cart we sell is one we'd put our own families in. It's inspected, serviced, and detailed before it lists, and the listing and Cart Report tell you exactly what's on it and what's been done to it.</p>
           <p>Local to Nocatee, serving Ponte Vedra, St. Johns, St. Augustine, and greater Jacksonville.</p>
         </div>
         <ol class="steps">
-          <li><span class="steps__n">1</span><div><h3>Sourced &amp; inspected</h3><p>Hand-picked, then a full mechanical and electrical inspection.</p></div></li>
-          <li><span class="steps__n">2</span><div><h3>Reconditioned &amp; detailed</h3><p>Batteries tested, brakes serviced, cosmetics corrected, then a full detail.</p></div></li>
+          <li><span class="steps__n">1</span><div><h3>Sourced and inspected</h3><p>Hand-picked, then a full mechanical and electrical inspection.</p></div></li>
+          <li><span class="steps__n">2</span><div><h3>Reconditioned and detailed</h3><p>Batteries tested, brakes serviced, cosmetics corrected, then a full detail.</p></div></li>
           <li><span class="steps__n">3</span><div><h3>Delivered to your door</h3><p>Free delivery in our service area with a full walkthrough. Outside it, $3 per mile anywhere in Florida and Georgia.</p></div></li>
           <li><span class="steps__n">4</span><div><h3>Backed after the sale</h3><p>Questions after you buy? We're a call away, and service on carts we've sold always gets priority.</p></div></li>
         </ol>
@@ -242,8 +244,7 @@
     <section class="section section--sand section--tight">
       <div class="wrap area">
         <div>
-          <p class="eyebrow">Service area</p>
-          <h2>Free delivery across Northeast Florida.</h2>
+          <h2>Free delivery across Northeast Florida</h2>
           <p>Outside the free delivery zone, delivery is $3 per mile anywhere in Florida and Georgia.</p>
         </div>
         <ul class="area__list">
@@ -256,7 +257,6 @@
     <section class="section" id="faq">
       <div class="wrap wrap--narrow">
         <div class="section__head">
-          <p class="eyebrow">FAQ</p>
           <h2>Common questions</h2>
         </div>
         <details class="faq"><summary>Can I see a cart in person before buying?</summary><p>Yes. Viewings are by appointment, 7 days a week. Text or call to set a time.</p></details>
@@ -272,8 +272,7 @@
     <section class="section section--navy" id="contact">
       <div class="wrap contact">
         <div>
-          <p class="eyebrow eyebrow--light">Contact</p>
-          <h2>Let's find your cart.</h2>
+          <h2>Let's find your cart</h2>
           <p>Buying, selling, or planning a custom build? Texting is the fastest way to reach us.</p>
           <ul class="contact__list">
             <li><span>Call or text</span><a href="tel:+19043955452">(904) 395-5452</a></li>

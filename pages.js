@@ -58,6 +58,15 @@
     }
     else f.set("_replyto", email);
 
+    // Photos: optional, Formspree allows 10 files of 25 MB each per submission.
+    const photos = f.getAll("photos").filter((p) => p && p.size);
+    f.delete("photos");
+    if (photos.length > 10 || photos.some((p) => p.size > 25 * 1024 * 1024)) {
+      showStatus("err", `<strong>Those photos are too much to send here.</strong> Attach up to 10, each under 25 MB, or text them to <a href="sms:${PHONE}">(904) 395-5452</a>.`);
+      return;
+    }
+    photos.forEach((p) => f.append("photos", p));
+
     const btn = form.querySelector("button[type=submit]");
     btn.disabled = true;
     btn.textContent = "Sending…";
@@ -66,7 +75,7 @@
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, { method: "POST", body: f, headers: { Accept: "application/json" } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       form.reset();
-      showStatus("ok", `<strong>Got it, ${esc(f.get("name"))}.</strong> We'll text ${esc(f.get("phone"))} with an offer or a couple of questions. Want it faster? Text photos to <a href="sms:${PHONE}">(904) 395-5452</a>.`);
+      showStatus("ok", `<strong>Got it, ${esc(f.get("name"))}.</strong> We'll text ${esc(f.get("phone"))} with an offer or a couple of questions. ${photos.length ? "Your photos came through." : `Want it faster? Text photos to <a href="sms:${PHONE}">(904) 395-5452</a>.`}`);
     } catch (err) {
       showStatus("err", `<strong>That didn't send.</strong> Please text or call <a href="sms:${PHONE}">(904) 395-5452</a>, or email <a href="mailto:${EMAIL}">${EMAIL}</a>.`);
     } finally {

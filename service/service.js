@@ -125,6 +125,15 @@
     }
     else f.set("_replyto", email);
 
+    // Photos: optional, Formspree allows 10 files of 25 MB each per submission.
+    const photos = f.getAll("photos").filter((p) => p && p.size);
+    f.delete("photos");
+    if (photos.length > 10 || photos.some((p) => p.size > 25 * 1024 * 1024)) {
+      showStatus("err", `<strong>Those photos are too much to send here.</strong> Attach up to 10, each under 25 MB, or text them to <a href="sms:${PHONE}">(904) 395-5452</a>.`);
+      return;
+    }
+    photos.forEach((p) => f.append("photos", p));
+
     const btn = form.querySelector("button[type=submit]");
     btn.disabled = true;
     btn.textContent = "Sending…";

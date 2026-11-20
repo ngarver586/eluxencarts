@@ -278,7 +278,9 @@
       return;
     }
     f.set("_subject", `Website: ${subject}`);
-    if (String(f.get("reply")).includes("@")) f.set("_replyto", f.get("reply"));
+    // Formspree sends its autoresponse to a field named "email": pull one out of the combined field.
+    const replyEmail = ((String(f.get("reply")).match(/[^\s@<>(),;:]+@[^\s@<>(),;:]+\.[^\s@<>(),;:]+/) || [])[0] || "").replace(/\.+$/, "");
+    if (replyEmail) { f.set("_replyto", replyEmail); f.set("email", replyEmail); }
     const btn = form.querySelector("button[type=submit]");
     btn.disabled = true;
     btn.textContent = "Sending…";

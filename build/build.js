@@ -282,12 +282,12 @@
     const estText = est.lines.length ? `${fmt(est.lo)} to ${fmt(est.hi)}` : "-";
     const body = new FormData();
     body.set("_subject", `Custom build: ${name}${phone ? " · " + phone : ""} · est. ${estText}`);
-    if (email) body.set("_replyto", email);
+    if (email) { body.set("_replyto", email); body.set("email", email); }
     body.set("topic", "Custom build questionnaire");
     body.set("Estimated all-in", estText);
-    // Formspree validates any field named "email", so leave it out when it's blank.
+    // Formspree validates any field named "email" and sends its autoresponse there: it is set above only when filled in.
     sheetLines().forEach(([label, v]) => {
-      if (label === "Email" && !v.length) return;
+      if (label === "Email") return;
       body.set(label, v.length ? v.join(", ") : "-");
     });
     body.set("Build sheet", document.getElementById("out").value);

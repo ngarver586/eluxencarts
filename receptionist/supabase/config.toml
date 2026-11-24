@@ -1,0 +1,5 @@
+project_id = "wvvwkpykosiudltuvjnw"
+
+# The function checks the Retell signature itself, so Supabase's JWT check is off.
+[functions.receptionist]
+verify_jwt = false

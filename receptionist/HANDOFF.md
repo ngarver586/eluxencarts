@@ -70,8 +70,12 @@ needs a live row in `selftest_tokens` (2 hour expiry) sent as
 `x-selftest-token`. The session's shell cannot reach supabase.co, so call it
 from SQL with the `http` extension and keep the token inside the database:
 
+Run the insert as its own query first. In the same statement the function
+cannot see the uncommitted token and answers 401.
+
 ```sql
 insert into public.selftest_tokens default values;
+-- then, as a separate query:
 select status, content from extensions.http((
   'POST',
   'https://wvvwkpykosiudltuvjnw.supabase.co/functions/v1/receptionist/selftest',

@@ -21,7 +21,7 @@ except where "Decisions since the brief" below says otherwise.
   push, redeploy the entry point with the new commit ID (Supabase MCP
   `deploy_edge_function`, `verify_jwt: false`), or deploy the folder with
   the Supabase CLI.
-- 33 Deno tests pass (`deno task test`). They use in-memory stand-ins. Real
+- 34 Deno tests pass (`deno task test`). They use in-memory stand-ins. Real
   Square has not been exercised beyond read-only checks.
 
 ## Done
@@ -82,6 +82,28 @@ select status, content from extensions.http((
 )::extensions.http_request);
 ```
 
+## Retell wiring is built, waiting on the account (2026-11-25)
+
+`POST .../receptionist/admin/retell-sync` creates the Retell LLM and agent
+the first time and updates them after that, using `RETELL_API_KEY` from
+Supabase secrets. The IDs are kept in the `integration_state` table. It
+takes the same `x-selftest-token` header as `/selftest` and also works in
+production. Body: the contents of `dist/retell-sync.json`, or
+`{"op":"voices"}` to list voice IDs. `deno task sync` calls it when run with
+a Supabase secret key. From a cloud session, run
+`deno run ... scripts/sync.ts --dry-run`, then POST `dist/retell-sync.json`
+from SQL the same way as the selftest example above (set
+`select extensions.http_set_curlopt('CURLOPT_TIMEOUT', '30')` first).
+
+Voice settings live under `voice:` in `business.yaml`. `voice_id` is still
+the docs' example voice (`retell-Cimo`); list voices and let Nick pick.
+The agent is left as a draft. Retell says draft versions can be attached to
+phone numbers and tested in the dashboard. Not yet exercised against the
+real Retell API: field names follow the docs as of today.
+
+Retell signs tool calls and webhooks with the API key that has the webhook
+badge in its dashboard. That is the key Nick must put in Supabase.
+
 Deno tests in a cloud session: jsr.io is blocked, so map
 `jsr:@std/assert@1` to a local shim with `--import-map` and `--no-lock`.
 
@@ -95,10 +117,9 @@ Deno tests in a cloud session: jsr.io is blocked, so map
 2. Secrets in Supabase (Dashboard, Edge Functions, Secrets), entered by
    Nick: `SQUARE_ACCESS_TOKEN`, `RETELL_API_KEY`, `RESEND_API_KEY`. Then
    `GET /health` should show `square_ok: true`.
-3. Retell: Nick creates the account. Add a step to `scripts/sync.ts` that
-   creates or updates the Retell LLM and agent from `dist/retell-llm.json`
-   and sets the agent webhook to `.../receptionist/webhook`. Check Retell's
-   current API docs first. Test with free web calls before buying a number.
+3. Retell: Nick creates the account and adds `RETELL_API_KEY`. Run the
+   retell-sync (see above), fix whatever the real API rejects, then test
+   with free web calls in the Retell dashboard before buying a number.
    Ask before the number purchase ($2 a month, needs Retell's ID check).
 4. Resend: Nick creates the account and adds its DNS records at Namecheap
    (DNS host). Current DNS: MX is Namecheap Private Email, apex SPF is

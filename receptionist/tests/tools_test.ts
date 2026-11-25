@@ -306,3 +306,38 @@ Deno.test("selftest: runs a tool with a live token, refuses without one, and is 
   env.SQUARE_ENV = "production";
   assertEquals((await call({ "x-selftest-token": token }, { name: "get_services" })).status, 404);
 });
+
+Deno.test("retell-sync: creates the LLM and agent once, updates them after, and needs a token", async () => {
+  const { db, deps, state } = setup();
+  const token = "0b0e4b52-58a1-4d0c-9f0a-2d3c1a9e7f11";
+  const call = (headers: Record<string, string>, body: unknown) =>
+    handle(
+      new Request("https://x.supabase.co/functions/v1/receptionist/admin/retell-sync", {
+        method: "POST",
+        headers,
+        body: JSON.stringify(body),
+      }),
+      deps,
+    );
+  const payload = { llm: { general_prompt: "hi" }, agent: { voice_id: "retell-Cimo" } };
+
+  assertEquals((await call({}, payload)).status, 401);
+  assertEquals(state.retell.length, 0);
+
+  db.tables.selftest_tokens.push({ token, expires_at: new Date(NOW.getTime() + 3600_000).toISOString() });
+  const first = await (await call({ "x-selftest-token": token }, payload)).json();
+  assertEquals([first.ok, first.llm, first.agent, first.llm_id, first.agent_id], [true, "created", "created", "llm_1", "agent_1"]);
+  assertEquals(state.retell[1].body.response_engine, { type: "retell-llm", llm_id: "llm_1" });
+  assertEquals(state.retell[0].auth, `Bearer ${RETELL_KEY}`);
+
+  const second = await (await call({ "x-selftest-token": token }, payload)).json();
+  assertEquals([second.llm, second.agent], ["updated", "updated"]);
+  assertEquals(state.retell.slice(2).map((r) => `${r.method} ${r.path}`), [
+    "PATCH /update-retell-llm/llm_1",
+    "PATCH /update-agent/agent_1",
+  ]);
+  assert(!JSON.stringify([first, second]).includes(RETELL_KEY));
+
+  const voices = await (await call({ "x-selftest-token": token }, { op: "voices" })).json();
+  assertEquals(voices.voices[0].voice_id, "retell-Cimo");
+});

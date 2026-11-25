@@ -26,6 +26,16 @@ greeting: >-
   Thanks for calling Eluxen Carts. I'm an AI assistant, and this call is
   recorded and transcribed. How can I help you today?
 
+# The voice agent itself. Pushed to Retell by the sync.
+voice:
+  agent_name: Eluxen Carts receptionist
+  voice_id: retell-Cimo       # any voice_id from Retell's voice list
+  language: en-US
+  max_call_minutes: 15        # hard stop for a single call
+  hang_up_after_silence_seconds: 30
+  # Words the speech recognition should expect to hear.
+  boosted_keywords: [Eluxen, Nocatee, Ponte Vedra, EZGO, Club Car, Yamaha, ICON, Evolution, lithium]
+
 hours:
   open: "09:00"   # earliest appointment start, Eastern time
   close: "19:00"  # appointments must end by this time

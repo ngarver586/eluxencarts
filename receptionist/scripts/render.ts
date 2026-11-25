@@ -40,6 +40,7 @@ export function loadBusiness(yamlText: string): Business {
   for (const text of [b.greeting, b.instructions, ...(b.facts ?? [])]) {
     need(!/—/.test(String(text)), "customer-facing wording must not contain em dashes");
   }
+  need(typeof b?.voice?.voice_id === "string" && b.voice.voice_id, "voice.voice_id is required");
   if (problems.length) throw new Error("business.yaml problems:\n- " + problems.join("\n- "));
   b.service_area.home_zip = String(b.service_area.home_zip);
   return b;
@@ -97,6 +98,20 @@ export function runtimeConfig(b: Business): Config {
     booking: b.booking,
     service_area: { ...b.service_area, zip_overrides: b.service_area.zip_overrides ?? {} },
     services: b.services,
+  };
+}
+
+/** Agent settings in Retell's create-agent format. The response engine is attached at sync time. */
+export function retellAgent(b: Business, webhookUrl: string) {
+  const v = b.voice;
+  return {
+    agent_name: v.agent_name ?? `${b.business.name} receptionist`,
+    voice_id: v.voice_id,
+    language: v.language ?? "en-US",
+    webhook_url: webhookUrl,
+    max_call_duration_ms: Math.min(Math.max(Number(v.max_call_minutes ?? 15), 1), 120) * 60_000,
+    end_call_after_silence_ms: Math.max(Number(v.hang_up_after_silence_seconds ?? 30), 10) * 1000,
+    boosted_keywords: v.boosted_keywords ?? [],
   };
 }
 

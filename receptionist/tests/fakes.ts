@@ -18,6 +18,7 @@ export class FakeDb implements Db {
     booking_attempts: [],
     tool_calls: [],
     selftest_tokens: [],
+    integration_state: [],
   };
   private n = 0;
 
@@ -90,6 +91,8 @@ export interface FakeSquareState {
   calls: { method: string; path: string }[];
   emails: unknown[];
   failCreateBooking?: boolean;
+  // deno-lint-ignore no-explicit-any
+  retell: { method: string; path: string; body: any; auth: string | null }[];
 }
 
 export function service(id: string, name: string, variation: string, dollars: number | null, minutes: number) {
@@ -128,6 +131,7 @@ export function newSquareState(): FakeSquareState {
     customers: [],
     calls: [],
     emails: [],
+    retell: [],
   };
 }
 
@@ -140,6 +144,16 @@ export function fakeFetch(state: FakeSquareState): typeof fetch {
     const body = init?.body ? JSON.parse(String(init.body)) : {};
     state.calls.push({ method, path: url.pathname });
 
+    if (url.hostname === "api.retellai.com") {
+      const auth = new Headers(init?.headers).get("Authorization");
+      state.retell.push({ method, path: url.pathname, body, auth });
+      if (url.pathname === "/list-voices") {
+        return Promise.resolve(ok([{ voice_id: "retell-Cimo", voice_name: "Cimo", provider: "retell", gender: "female" }]));
+      }
+      if (url.pathname === "/create-retell-llm") return Promise.resolve(ok({ llm_id: "llm_1" }));
+      if (url.pathname === "/create-agent") return Promise.resolve(ok({ agent_id: "agent_1" }));
+      return Promise.resolve(ok({}));
+    }
     if (url.hostname === "api.resend.com") {
       state.emails.push(body);
       return Promise.resolve(ok({ id: "email-1" }));

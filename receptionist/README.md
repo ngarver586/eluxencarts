@@ -93,9 +93,9 @@ minute. It needs [Deno](https://deno.com) and a `.env` file (copy
 `.env.example`, add the Supabase secret key from Project Settings, API
 Keys). Or ask Claude Code to "sync the receptionist config".
 
-Changes to the greeting, the instructions, the facts or the service list
-also have to be pushed to the voice agent. That step is added when the voice
-agent is wired up.
+The same command also updates the voice agent in Retell (greeting,
+instructions, facts, service list, voice). The Retell key never leaves
+Supabase: the sync asks the backend to make the change.
 
 ## Turning the receptionist off fast
 
@@ -167,7 +167,7 @@ cd receptionist
 deno task test
 ```
 
-33 tests cover the service area and trip charge, same-day refusal, business
+34 tests cover the service area and trip charge, same-day refusal, business
 hours, the buffer, double-booking prevention including two simultaneous
 calls, request mode, the confirmation requirement, signature checks and the
 summary email. They run against in-memory stand-ins for Square and Supabase.
@@ -190,5 +190,5 @@ in `business.yaml` do not need a redeploy.
 | `TEST_CALLS.md` | Test call script and results log |
 | `supabase/functions/receptionist/` | The backend |
 | `supabase/migrations/` | Database tables |
-| `scripts/sync.ts` | Publishes `business.yaml` |
+| `scripts/sync.ts` | Publishes `business.yaml` to Supabase and Retell |
 | `tests/` | Automated tests |

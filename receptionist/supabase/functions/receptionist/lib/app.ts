@@ -3,10 +3,12 @@
 //   POST .../receptionist/webhook  call events from Retell (signed by Retell)
 //   GET  .../receptionist/health   what is configured; never returns secrets
 //   POST .../receptionist/selftest sandbox-only tool runner for testing without a phone call
+//   POST .../receptionist/admin/retell-sync  create or update the Retell agent
 
 import type { Db, Row } from "./db.ts";
 import { buildSummary, sendEmail } from "./email.ts";
 import { verifyRetellSignature } from "./retell.ts";
+import { retellSync } from "./retell_sync.ts";
 import { type Config, matchServices } from "./rules.ts";
 import { Square } from "./square.ts";
 import { type Ctx, loadServices, runTool } from "./tools.ts";
@@ -180,19 +182,24 @@ async function handleWebhook(deps: Deps, raw: string): Promise<Response> {
   return new Response(null, { status: 204 });
 }
 
-// Lets a tester run the same tools the voice agent uses, without Retell.
-// Refused outright in production. Needs a short-lived token from the
-// selftest_tokens table, which only the database owner can create.
-async function handleSelftest(deps: Deps, req: Request): Promise<Response> {
-  if (deps.env("SQUARE_ENV") === "production") return json({ error: "not found" }, 404);
+/** True when the request carries a live token from the selftest_tokens table. */
+async function adminTokenOk(deps: Deps, req: Request): Promise<boolean> {
   const token = req.headers.get("x-selftest-token") ?? "";
-  if (!/^[0-9a-f-]{36}$/.test(token)) return json({ error: "unauthorized" }, 401);
+  if (!/^[0-9a-f-]{36}$/.test(token)) return false;
   const nowIso = (deps.now ?? (() => new Date()))().toISOString();
   const rows = await deps.db.select(
     "selftest_tokens",
     `token=eq.${token}&expires_at=gt.${encodeURIComponent(nowIso)}&select=token`,
   );
-  if (!rows.length) return json({ error: "unauthorized" }, 401);
+  return rows.length > 0;
+}
+
+// Lets a tester run the same tools the voice agent uses, without Retell.
+// Refused outright in production. Needs a short-lived token from the
+// selftest_tokens table, which only the database owner can create.
+async function handleSelftest(deps: Deps, req: Request): Promise<Response> {
+  if (deps.env("SQUARE_ENV") === "production") return json({ error: "not found" }, 404);
+  if (!(await adminTokenOk(deps, req))) return json({ error: "unauthorized" }, 401);
   // deno-lint-ignore no-explicit-any
   const body = JSON.parse(await req.text()) as any;
   if (body.name === "diagnostics") return json(await diagnostics(deps));
@@ -282,6 +289,10 @@ export async function handle(req: Request, deps: Deps): Promise<Response> {
   try {
     if (req.method === "GET" && path.endsWith("/health")) return await handleHealth(deps);
     if (req.method === "POST" && path.endsWith("/selftest")) return await handleSelftest(deps, req);
+    if (req.method === "POST" && path.endsWith("/admin/retell-sync")) {
+      if (!(await adminTokenOk(deps, req))) return json({ error: "unauthorized" }, 401);
+      return json(await retellSync(deps, JSON.parse(await req.text())));
+    }
     if (req.method !== "POST" || !(path.endsWith("/tool") || path.endsWith("/webhook"))) {
       return json({ error: "not found" }, 404);
     }

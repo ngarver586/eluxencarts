@@ -167,7 +167,7 @@ cd receptionist
 deno task test
 ```
 
-32 tests cover the service area and trip charge, same-day refusal, business
+33 tests cover the service area and trip charge, same-day refusal, business
 hours, the buffer, double-booking prevention including two simultaneous
 calls, request mode, the confirmation requirement, signature checks and the
 summary email. They run against in-memory stand-ins for Square and Supabase.

@@ -17,11 +17,11 @@ except where "Decisions since the brief" below says otherwise.
   (`/tool`, `/webhook`, `/health`).
 - The deployed entry point imports `lib/app.ts` and `lib/db.ts` from
   raw.githubusercontent.com at commit
-  `e237031e1c5d15b317fedba36b958116fbb60a52`. To ship code changes: commit,
+  `a6bb4975f359e891687667c40d46c16d7310a7cb` (function version 2). To ship code changes: commit,
   push, redeploy the entry point with the new commit ID (Supabase MCP
   `deploy_edge_function`, `verify_jwt: false`), or deploy the folder with
   the Supabase CLI.
-- 32 Deno tests pass (`deno task test`). They use in-memory stand-ins. Real
+- 33 Deno tests pass (`deno task test`). They use in-memory stand-ins. Real
   Square has not been exercised beyond read-only checks.
 
 ## Done
@@ -36,32 +36,58 @@ except where "Decisions since the brief" below says otherwise.
   token works for `/v2/locations` (location `LVEYJA6Z2NS08`, "Default Test
   Account").
 
+## Square sandbox: Appointments is set up (2026-11-25)
+
+Done in the sandbox Square Dashboard (Default Test Account, location
+`LVEYJA6Z2NS08`). Nick's real Square account was not touched.
+
+- Appointments onboarded on the **Plus** trial. No card was asked for.
+- Services created: `Maintenance` (`Electric cart` $189, `Gas cart` $219,
+  90 min), `Diagnostic or lithium battery check` ($99, 60 min), `Signature
+  detail` (`4-seat`, $149, 120 min). Square's four sample salon services are
+  still there on purpose: they prove the allowlist hides them.
+- The owner ("Sandbox Seller") is bookable with all services assigned.
+- A personal event with "Block time" on sits on Fri 2026-11-27, 1 to 2 PM,
+  to check whether Square's availability respects blocked time.
+- Sandbox calendar hours look like Mon to Fri from 9 AM. The real account
+  must be open 9 AM to 7 PM every day or the AI will offer fewer times
+  than `business.yaml` allows.
+
 ## Blocked right now
 
-The Square sandbox seller is **not onboarded to Appointments**. Every
-Bookings call returns `401 Merchant not onboarded to Appointments`, and the
-sandbox catalog has no appointment services.
+Nick has to put the **sandbox** access token into Supabase as
+`SQUARE_ACCESS_TOKEN` (Dashboard, Edge Functions, Secrets). Nothing can be
+verified against Square until then. `/health` currently shows
+`square_token_set: false`.
 
-Next action, in the browser:
+## Testing without a phone call: `/selftest`
 
-1. https://developer.squareup.com/apps, **Sandbox test accounts**, Default
-   Test Account, **Open in Square Dashboard**.
-2. If **Appointments** is in the left menu: Get started, then create
-   `Maintenance` (variations `Electric cart` $189 and `Gas cart` $219, 90
-   min), `Diagnostic or lithium battery check` ($99, 60 min), `Signature
-   detail` (variation `4-seat`, $149, 120 min). Make the owner bookable and
-   assign the services. Start the **Plus** plan with Square's sandbox test
-   card `4111 1111 1111 1111`, CVV `111`, expiry `12/40`.
-3. If Appointments is missing or redirects to a marketing page: stop. This
-   is a known sandbox limitation. Fallback already agreed with Nick: a
-   second, free Square account used only for testing, with a Plus trial.
-   Then `SQUARE_ENV=production` with that test account's token.
+`POST .../receptionist/selftest` runs the same six tools without Retell.
+Body: `{"name": "<tool>", "args": {...}, "call": {"call_id": "a"}}`, or
+`{"name": "diagnostics"}` for what Square returns next to how
+`business.yaml` matched it. It is refused when `SQUARE_ENV=production` and
+needs a live row in `selftest_tokens` (2 hour expiry) sent as
+`x-selftest-token`. The session's shell cannot reach supabase.co, so call it
+from SQL with the `http` extension and keep the token inside the database:
 
-Never touch Nick's real Square account until he says so (Phase 2).
+```sql
+insert into public.selftest_tokens default values;
+select status, content from extensions.http((
+  'POST',
+  'https://wvvwkpykosiudltuvjnw.supabase.co/functions/v1/receptionist/selftest',
+  array[extensions.http_header('x-selftest-token',
+    (select token::text from public.selftest_tokens order by created_at desc limit 1))],
+  'application/json',
+  '{"name":"diagnostics"}'
+)::extensions.http_request);
+```
+
+Deno tests in a cloud session: jsr.io is blocked, so map
+`jsr:@std/assert@1` to a local shim with `--import-map` and `--no-lock`.
 
 ## Then, in order
 
-1. Verify Square: business booking profile shows
+1. Verify Square with `/selftest` once the token is in: business booking profile shows
    `support_seller_level_writes: true`, services match `business.yaml`.
    Run each tool against the test account before any voice work. Check
    whether Square's availability already respects blocked time, and whether

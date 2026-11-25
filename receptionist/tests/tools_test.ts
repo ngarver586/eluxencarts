@@ -272,3 +272,37 @@ Deno.test("webhook: a summary skipped for a missing email key is sent on the nex
   await t.post("webhook", { event: "call_analyzed", call });
   assertEquals(t.state.emails.length, 1);
 });
+
+Deno.test("selftest: runs a tool with a live token, refuses without one, and is off in production", async () => {
+  const { db, deps, env } = setup();
+  const token = "0b0e4b52-58a1-4d0c-9f0a-2d3c1a9e7f11";
+  db.tables.selftest_tokens.push({ token, expires_at: new Date(NOW.getTime() + 3600_000).toISOString() });
+  const call = (headers: Record<string, string>, body: unknown) =>
+    handle(
+      new Request("https://x.supabase.co/functions/v1/receptionist/selftest", {
+        method: "POST",
+        headers,
+        body: JSON.stringify(body),
+      }),
+      deps,
+    );
+
+  assertEquals((await call({}, { name: "get_services" })).status, 401);
+  assertEquals((await call({ "x-selftest-token": token.replace("0b", "1c") }, { name: "get_services" })).status, 401);
+
+  const ok = await call({ "x-selftest-token": token }, { name: "get_services" });
+  assertEquals(ok.status, 200);
+  assert((await ok.json()).services.length > 0);
+  assert(String(db.tables.tool_calls[0].call_id).startsWith("selftest-"));
+
+  const diag = await (await call({ "x-selftest-token": token }, { name: "diagnostics" })).json();
+  assertEquals(diag.seller_writes, true);
+  assertEquals(diag.services.in_square.length, 4);
+
+  db.tables.selftest_tokens[0].expires_at = new Date(NOW.getTime() - 1000).toISOString();
+  assertEquals((await call({ "x-selftest-token": token }, { name: "get_services" })).status, 401);
+
+  db.tables.selftest_tokens[0].expires_at = new Date(NOW.getTime() + 3600_000).toISOString();
+  env.SQUARE_ENV = "production";
+  assertEquals((await call({ "x-selftest-token": token }, { name: "get_services" })).status, 404);
+});

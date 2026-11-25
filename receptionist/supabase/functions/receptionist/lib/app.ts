@@ -2,11 +2,12 @@
 //   POST .../receptionist/tool     tool calls from the voice agent (signed by Retell)
 //   POST .../receptionist/webhook  call events from Retell (signed by Retell)
 //   GET  .../receptionist/health   what is configured; never returns secrets
+//   POST .../receptionist/selftest sandbox-only tool runner for testing without a phone call
 
 import type { Db, Row } from "./db.ts";
 import { buildSummary, sendEmail } from "./email.ts";
 import { verifyRetellSignature } from "./retell.ts";
-import type { Config } from "./rules.ts";
+import { type Config, matchServices } from "./rules.ts";
 import { Square } from "./square.ts";
 import { type Ctx, loadServices, runTool } from "./tools.ts";
 
@@ -179,6 +180,72 @@ async function handleWebhook(deps: Deps, raw: string): Promise<Response> {
   return new Response(null, { status: 204 });
 }
 
+// Lets a tester run the same tools the voice agent uses, without Retell.
+// Refused outright in production. Needs a short-lived token from the
+// selftest_tokens table, which only the database owner can create.
+async function handleSelftest(deps: Deps, req: Request): Promise<Response> {
+  if (deps.env("SQUARE_ENV") === "production") return json({ error: "not found" }, 404);
+  const token = req.headers.get("x-selftest-token") ?? "";
+  if (!/^[0-9a-f-]{36}$/.test(token)) return json({ error: "unauthorized" }, 401);
+  const nowIso = (deps.now ?? (() => new Date()))().toISOString();
+  const rows = await deps.db.select(
+    "selftest_tokens",
+    `token=eq.${token}&expires_at=gt.${encodeURIComponent(nowIso)}&select=token`,
+  );
+  if (!rows.length) return json({ error: "unauthorized" }, 401);
+  // deno-lint-ignore no-explicit-any
+  const body = JSON.parse(await req.text()) as any;
+  if (body.name === "diagnostics") return json(await diagnostics(deps));
+  const call = body.call ?? {};
+  return await handleTool(
+    deps,
+    JSON.stringify({
+      name: body.name,
+      args: body.args ?? {},
+      call: { call_id: `selftest-${String(call.call_id ?? "1")}`, from_number: call.from_number },
+    }),
+  );
+}
+
+/** What Square actually returns, next to how business.yaml matched it. No secrets. */
+async function diagnostics(deps: Deps): Promise<Record<string, unknown>> {
+  const out: Record<string, unknown> = {};
+  const square = getSquare(deps);
+  if (!square) return { square_token_set: false };
+  const step = async (key: string, fn: () => Promise<unknown>) => {
+    try {
+      out[key] = await fn();
+    } catch (e) {
+      out[key] = { error: String(e).slice(0, 300) };
+    }
+  };
+  out.square_env = square.environment;
+  await step("seller_writes", () => square.sellerWritesSupported());
+  await step("location_id", () => square.locationId());
+  await step("team_member_id", () => square.teamMemberId());
+  await step("services", async () => {
+    const cfg = await loadConfig(deps.db, 0);
+    const variations = await square.listServiceVariations();
+    const { services, mismatches } = matchServices(cfg, variations);
+    return {
+      in_square: variations.map((v) => ({
+        name: `${v.item_name} / ${v.variation_name}`,
+        price_cents: v.price_cents,
+        duration_minutes: v.duration_minutes,
+        bookable: v.available_for_booking,
+      })),
+      matched: services.map((s) => ({
+        key: s.key,
+        square_name: s.square_name,
+        price: s.price_text,
+        duration_minutes: s.duration_minutes,
+      })),
+      mismatches,
+    };
+  });
+  return out;
+}
+
 async function handleHealth(deps: Deps): Promise<Response> {
   const out: Record<string, unknown> = {
     retell_key_set: !!deps.env("RETELL_API_KEY"),
@@ -214,6 +281,7 @@ export async function handle(req: Request, deps: Deps): Promise<Response> {
   const path = new URL(req.url).pathname.replace(/\/+$/, "");
   try {
     if (req.method === "GET" && path.endsWith("/health")) return await handleHealth(deps);
+    if (req.method === "POST" && path.endsWith("/selftest")) return await handleSelftest(deps, req);
     if (req.method !== "POST" || !(path.endsWith("/tool") || path.endsWith("/webhook"))) {
       return json({ error: "not found" }, 404);
     }

@@ -346,6 +346,7 @@ export async function createBooking(ctx: Ctx, args: Args): Promise<ToolResult> {
     };
 
     let created;
+    let atCustomerLocation = true;
     try {
       created = await ctx.square!.createBooking(String(attemptId), booking);
     } catch (e) {
@@ -353,6 +354,7 @@ export async function createBooking(ctx: Ctx, args: Args): Promise<ToolResult> {
       if (e instanceof SquareError && e.status === 400 && /location_type|address/i.test(e.message)) {
         delete booking.location_type;
         delete booking.address;
+        atCustomerLocation = false;
         created = await ctx.square!.createBooking(`${attemptId}-b`, booking);
       } else throw e;
     }
@@ -379,7 +381,13 @@ export async function createBooking(ctx: Ctx, args: Args): Promise<ToolResult> {
       notes,
       square_customer_id: customer.id,
       square_booking_id: created.id,
-      details: { args, customer_is_new: customerIsNew, booking_status: created.status, conflict },
+      details: {
+        args,
+        customer_is_new: customerIsNew,
+        booking_status: created.status,
+        at_customer_location: atCustomerLocation,
+        conflict,
+      },
     });
 
     return {

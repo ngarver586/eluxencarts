@@ -17,6 +17,7 @@ export class FakeDb implements Db {
     messages: [],
     booking_attempts: [],
     tool_calls: [],
+    selftest_tokens: [],
   };
   private n = 0;
 
@@ -24,8 +25,10 @@ export class FakeDb implements Db {
     for (const part of filter.split("&")) {
       const [col, cond] = part.split("=");
       if (col === "select" || col === "order") continue;
-      const value = decodeURIComponent(cond.replace(/^(eq|is)\./, ""));
-      if (cond.startsWith("is.null")) {
+      const value = decodeURIComponent(cond.replace(/^(eq|is|gt)\./, ""));
+      if (cond.startsWith("gt.")) {
+        if (!(String(row[col]) > value)) return false;
+      } else if (cond.startsWith("is.null")) {
         if (row[col] != null) return false;
       } else if (String(row[col]) !== value) return false;
     }

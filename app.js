@@ -300,4 +300,32 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
   render();
+
+  // Google reviews from reviews.json (refreshed daily by .github/workflows/google-reviews.yml).
+  const stars = (n) => {
+    const full = Math.round(n * 2) / 2;
+    return `<span class="stars" role="img" aria-label="${n} out of 5 stars">${[1, 2, 3, 4, 5].map((i) =>
+      `<i class="${full >= i ? "on" : full >= i - 0.5 ? "half" : ""}"></i>`).join("")}</span>`;
+  };
+  fetch("reviews.json", { cache: "no-cache" })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((d) => {
+      if (!d || !d.rating || !d.count || !d.reviews?.length) return;
+      const section = document.getElementById("reviews");
+      const score = document.getElementById("reviews-score");
+      score.href = d.url;
+      score.innerHTML = `<strong>${d.rating.toFixed(1)}</strong>${stars(d.rating)}<span>${d.count} Google review${d.count === 1 ? "" : "s"}</span>`;
+      document.getElementById("reviews-all").href = d.url;
+      document.getElementById("reviews-grid").innerHTML = d.reviews.slice(0, 3).map((r) => `
+        <figure class="review">
+          ${stars(r.rating)}
+          <blockquote>${esc(r.text)}</blockquote>
+          <figcaption>
+            ${r.photo ? `<img src="${esc(r.photo)}" alt="" width="36" height="36" loading="lazy" referrerpolicy="no-referrer" />` : `<span class="review__initial">${esc(r.author.charAt(0))}</span>`}
+            <span><a href="${esc(r.authorUrl || d.url)}" target="_blank" rel="noopener">${esc(r.author)}</a><small>${esc(r.when)} on Google</small></span>
+          </figcaption>
+        </figure>`).join("");
+      section.hidden = false;
+    })
+    .catch(() => {});
 })();

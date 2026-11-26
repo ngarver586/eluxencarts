@@ -316,7 +316,7 @@
       score.href = d.url;
       score.innerHTML = `<strong>${d.rating.toFixed(1)}</strong>${stars(d.rating)}<span>${d.count} Google review${d.count === 1 ? "" : "s"}</span>`;
       document.getElementById("reviews-all").href = d.url;
-      document.getElementById("reviews-grid").innerHTML = d.reviews.slice(0, 3).map((r) => `
+      document.getElementById("reviews-grid").innerHTML = d.reviews.slice(0, 4).map((r) => `
         <figure class="review">
           ${stars(r.rating)}
           <blockquote>${esc(r.text)}</blockquote>

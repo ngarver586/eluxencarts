@@ -1,5 +1,44 @@
 {
-  "rating": null,
-  "count": 0,
-  "reviews": []
+  "rating": 5,
+  "count": 4,
+  "url": "https://maps.google.com/?cid=17423984646791182521&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+  "reviewUrl": "https://search.google.com/local/writereview?placeid=ChIJyRgJ49cx5IgRuTjZU7htzvE",
+  "reviews": [
+    {
+      "author": "Alexander Leonetti",
+      "authorUrl": "https://www.google.com/maps/contrib/104912757753990291291/reviews",
+      "photo": "https://lh3.googleusercontent.com/a/ACg8ocICxHpMYhqbcd6B6XT_z8MphaeDt1ybAnEbKyRXKlnAsKap5g=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "text": "Great all around experience, great guy, great service, couldn’t ask for better !",
+      "published": "2026-11-15T10:26:16.910838384Z",
+      "when": "a week ago"
+    },
+    {
+      "author": "Clayton Simmons",
+      "authorUrl": "https://www.google.com/maps/contrib/101214168407656673370/reviews",
+      "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXsPo5MAIfcRgPz7esEJA3-4-WHyAblciR_MEXSiLVxJDk9w8RW=s128-c0x00000000-cc-rp-mo-ba3",
+      "rating": 5,
+      "text": "Nick was pleasant and efficient. He didn’t try to upsell me, diagnosed my issue and helped me order the part I needed. Very pleased with his service.",
+      "published": "2026-11-14T20:25:12.474361204Z",
+      "when": "a week ago"
+    },
+    {
+      "author": "hugh slatter",
+      "authorUrl": "https://www.google.com/maps/contrib/101483229455876415938/reviews",
+      "photo": "https://lh3.googleusercontent.com/a/ACg8ocKBWxjUz32FM9T89J9wi9zNMXtV4Sf8tpBW8d0f8ICzniP53A=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "text": "Helpful and friendly service - pleasure working with Nick.\nThank you",
+      "published": "2026-11-14T17:40:42.403003796Z",
+      "when": "a week ago"
+    },
+    {
+      "author": "Thomas King",
+      "authorUrl": "https://www.google.com/maps/contrib/110470491024369929615/reviews",
+      "photo": "https://lh3.googleusercontent.com/a-/ALV-UjXlP9jroAbeQoFQ7-ohGeOfGIrV3JBA6ci8HOa3pJk7OBfKOiRA=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "text": "I just bought an Evolution cart from Eluxen Carts and couldn't be happier. Nick was amazing to work with. He was knowledgeable and patient, and he made the whole process easy. He helped me fully kit out the cart with everything I wanted, and it turned out exactly how I pictured it.\n\nCommunication was excellent the whole way through. Nick kept me updated and made coordinating delivery simple and stress-free. It's rare to find this level of customer service these days.",
+      "published": "2026-11-14T17:36:14.676688213Z",
+      "when": "a week ago"
+    }
+  ]
 }
